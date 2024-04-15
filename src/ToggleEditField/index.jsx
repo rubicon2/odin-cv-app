@@ -1,12 +1,14 @@
+import './index.css';
+
 export default function ToggleEditField({fieldName, onChange, value, edit}) {
   return (
-    <div className="flex">
-      <label htmlFor={fieldName}>{fieldName}</label>
+    <div className='toggle-edit-field'>
+      <label className='toggle-edit-field-label' htmlFor={fieldName}>{fieldName}</label>
       {edit && 
-        <input id={fieldName} onChange={onChange} value={value}></input>
+        <input className='toggle-edit-field-input' id={fieldName} onChange={onChange} value={value}></input>
       }
       {!edit &&
-        <span>{value}</span>
+        <span className='toggle-edit-field-readonly'>{value}</span>
       }
     </div>
   )

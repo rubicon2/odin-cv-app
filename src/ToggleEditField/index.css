@@ -1,0 +1,30 @@
+.toggle-edit-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.toggle-edit-field-label,
+.toggle-edit-field-input,
+.toggle-edit-field-readonly {
+  text-align: left;
+  padding: 0.5rem;
+  font-size: 1rem;
+}
+
+.toggle-edit-field-label {
+  padding: 0.5rem 0;
+}
+
+@media (min-width: 500px) {
+  .toggle-edit-field {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
+  .toggle-edit-field-label,
+  .toggle-edit-field-input,
+  .toggle-edit-field-readonly {
+    /* Put on this media query - if on mobile layout it overflows the container for some reason?? Even though 100% is LITERALLY 100% of the parent container! */
+    width: 100%;
+  }
+}
