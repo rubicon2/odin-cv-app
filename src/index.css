@@ -76,3 +76,7 @@ button:focus-visible {
 .flex {
   display: flex;
 }
+
+.input-flex-gap {
+  gap: 1rem;
+}
