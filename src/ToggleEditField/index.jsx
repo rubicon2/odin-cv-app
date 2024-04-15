@@ -8,7 +8,7 @@ export default function ToggleEditField({fieldName, onChange, value, edit}) {
         <input className='toggle-edit-field-input' id={fieldName} onChange={onChange} value={value}></input>
       }
       {!edit &&
-        <span className='toggle-edit-field-readonly'>{value}</span>
+        <span className='toggle-edit-field-readonly'>{value || 'None stated'}</span>
       }
     </div>
   )
