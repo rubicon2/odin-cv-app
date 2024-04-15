@@ -18,6 +18,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+input {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  padding: 0;
+  margin: 0;
+  /* Get rid of this god-forsaken border to stop everything shifting around when input fields are replaced by plain readonly text elements */
+  border: none;
+  border-radius: 5px;
+  outline: 1px solid #24242481;
+}
+
 a {
   font-weight: 500;
   color: var(--light-accent-color);
