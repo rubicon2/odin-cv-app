@@ -78,7 +78,9 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
           )}
         </div>
       ))}
-      {!edit && localEntries.length === 0 && <>None!</>}
+      {!edit && localEntries.length === 0 && (
+        <div className="none-message">None!</div>
+      )}
       {edit && (
         <button className="work-button" onClick={addBlankEntry}>
           Add new

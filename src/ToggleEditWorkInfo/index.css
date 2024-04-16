@@ -24,3 +24,10 @@
   padding-bottom: 1rem;
   border: none;
 }
+
+.none-message {
+  /* Same settings as button so the text sits in the same place as the button it replaces */
+  font-size: 1em;
+  font-weight: 600;
+  padding: 0.6em 1.2em;
+}
