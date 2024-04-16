@@ -1,11 +1,15 @@
-.add-work-button {
+.work-button {
   background-color: var(--dark-color);
   color: var(--light-color);
-  margin: 0 auto;
+  align-self: center;
 }
 
-.add-work-button:hover {
+.work-button:hover {
   background-color: black;
+}
+
+.delete-button {
+  background-color: #c75995;
 }
 
 .work-info-section {

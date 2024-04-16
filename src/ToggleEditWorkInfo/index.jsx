@@ -2,17 +2,25 @@ import ToggleEditField from '../ToggleEditField';
 import './index.css';
 
 export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
-  const localEntries = [...entries];
+  let localEntries = [...entries];
 
   function addBlankEntry() {
     localEntries.push({});
     onChange(localEntries);
   }
 
+  function deleteEntry(entry) {
+    localEntries = localEntries.filter((e) => e != entry);
+    onChange(localEntries);
+  }
+
   return (
     <div>
-      {localEntries.map((entry, index) => (
-        <div key={index} className="work-info-section input-flex-gap">
+      {localEntries.map((entry) => (
+        <div
+          key={`${entry.companyName}-${entry.position}-${entry.startDate}-${entry.endDate}`}
+          className="work-info-section input-flex-gap"
+        >
           <ToggleEditField
             fieldName={'Company'}
             value={entry.companyName}
@@ -60,11 +68,22 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
             }}
             edit={edit}
           />
+          {edit && (
+            <button
+              className="work-button delete-button"
+              onClick={() => deleteEntry(entry)}
+            >
+              Delete
+            </button>
+          )}
         </div>
       ))}
-      <button className="add-work-button" onClick={addBlankEntry}>
-        Add new
-      </button>
+      {!edit && localEntries.length === 0 && <>None!</>}
+      {edit && (
+        <button className="work-button" onClick={addBlankEntry}>
+          Add new
+        </button>
+      )}
     </div>
   );
 }
