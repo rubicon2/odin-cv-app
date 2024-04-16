@@ -19,8 +19,6 @@ function App() {
 
   const [workSubmitted, setWorkSubmitted] = useState(false);
 
-  // THINK ABOUT HAVING COLLAPSIBLE SECTION FOR EDUCATION INPUT! THAT WOULD BE SWEET!
-
   return (
     <>
       <h1>CV App</h1>
