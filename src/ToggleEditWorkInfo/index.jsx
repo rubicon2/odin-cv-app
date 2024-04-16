@@ -5,7 +5,11 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
   let localEntries = [...entries];
 
   function addBlankEntry() {
-    localEntries.push({});
+    const biggestIndex = localEntries.reduce(
+      (biggest, current) => (current.index > biggest ? current.index : biggest),
+      -1,
+    );
+    localEntries.push({ index: biggestIndex + 1 });
     onChange(localEntries);
   }
 
@@ -18,7 +22,7 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
     <div>
       {localEntries.map((entry) => (
         <div
-          key={`${entry.companyName}-${entry.position}-${entry.startDate}-${entry.endDate}`}
+          key={`${entry.index}`}
           className="work-info-section input-flex-gap"
         >
           <ToggleEditField
