@@ -23,7 +23,7 @@ export default function ToggleEditField({
       )}
       {!edit && (
         <span className="toggle-edit-field-readonly">
-          {value || 'None stated'}
+          {value || 'Not stated'}
         </span>
       )}
     </div>
