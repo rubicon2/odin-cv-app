@@ -22,59 +22,66 @@ function App() {
   return (
     <>
       <h1>CV App</h1>
-      <Container
-        className="input-flex-gap"
-        onButtonClick={() => setGeneralSubmitted(!generalSubmitted)}
-        submitted={generalSubmitted}
-      >
-        <h2>General</h2>
-        <ToggleEditField
-          fieldName="First Name"
-          onChange={(event) => setFirstName(event.target.value)}
-          value={firstName}
-          edit={!generalSubmitted}
-        />
-        <ToggleEditField
-          fieldName="Surname"
-          onChange={(event) => setSurname(event.target.value)}
-          value={surname}
-          edit={!generalSubmitted}
-        />
-      </Container>
-      <Container
-        onButtonClick={() => setEducationSubmitted(!educationSubmitted)}
-        submitted={educationSubmitted}
-      >
-        <h2>Education</h2>
-        <ToggleEditStudyInfo
-          placeOfStudy="School"
-          onChange={(infoObj) => setSchoolInfo(infoObj)}
-          isActive={educationActiveIndex === 0}
-          onOpen={() => setEducationActiveIndex(0)}
-          edit={!educationSubmitted}
-        />
-        <ToggleEditStudyInfo
-          placeOfStudy="College"
-          onChange={(infoObj) => setCollegeInfo(infoObj)}
-          isActive={educationActiveIndex === 1}
-          onOpen={() => setEducationActiveIndex(1)}
-          edit={!educationSubmitted}
-        />
-        <ToggleEditStudyInfo
-          placeOfStudy="University"
-          onChange={(infoObj) => setUniInfo(infoObj)}
-          isActive={educationActiveIndex === 2}
-          onOpen={() => setEducationActiveIndex(2)}
-          edit={!educationSubmitted}
-        />
-      </Container>
-      <Container
-        onButtonClick={() => setWorkSubmitted(!workSubmitted)}
-        submitted={workSubmitted}
-      >
-        <h2>Work Experience</h2>
-        <ToggleEditWorkInfo edit={!workSubmitted} />
-      </Container>
+      <div className="app-container">
+        <div className="app-container-col">
+          <Container
+            className="input-flex-gap"
+            onButtonClick={() => setGeneralSubmitted(!generalSubmitted)}
+            submitted={generalSubmitted}
+          >
+            <h2>General</h2>
+            <ToggleEditField
+              fieldName="First Name"
+              onChange={(event) => setFirstName(event.target.value)}
+              value={firstName}
+              edit={!generalSubmitted}
+            />
+            <ToggleEditField
+              fieldName="Surname"
+              onChange={(event) => setSurname(event.target.value)}
+              value={surname}
+              edit={!generalSubmitted}
+            />
+          </Container>
+          <Container
+            onButtonClick={() => setEducationSubmitted(!educationSubmitted)}
+            submitted={educationSubmitted}
+          >
+            <h2>Education</h2>
+            <ToggleEditStudyInfo
+              placeOfStudy="School"
+              onChange={(infoObj) => setSchoolInfo(infoObj)}
+              isActive={educationActiveIndex === 0}
+              onOpen={() => setEducationActiveIndex(0)}
+              edit={!educationSubmitted}
+            />
+            <ToggleEditStudyInfo
+              placeOfStudy="College"
+              onChange={(infoObj) => setCollegeInfo(infoObj)}
+              isActive={educationActiveIndex === 1}
+              onOpen={() => setEducationActiveIndex(1)}
+              edit={!educationSubmitted}
+            />
+            <ToggleEditStudyInfo
+              placeOfStudy="University"
+              onChange={(infoObj) => setUniInfo(infoObj)}
+              isActive={educationActiveIndex === 2}
+              onOpen={() => setEducationActiveIndex(2)}
+              edit={!educationSubmitted}
+            />
+          </Container>
+          <Container
+            onButtonClick={() => setWorkSubmitted(!workSubmitted)}
+            submitted={workSubmitted}
+          >
+            <h2>Work Experience</h2>
+            <ToggleEditWorkInfo edit={!workSubmitted} />
+          </Container>
+        </div>
+        <div className="app-container-col">
+          <div className="cv-preview-area"></div>
+        </div>
+      </div>
     </>
   );
 }
