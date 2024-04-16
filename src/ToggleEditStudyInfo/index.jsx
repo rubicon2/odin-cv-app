@@ -29,21 +29,21 @@ export default function ToggleEditStudyInfo({
           edit={edit}
         />
         <ToggleEditField
-          fieldName={placeOfStudy + ' qualification(s)'}
+          fieldName={'Qualification(s)'}
           value={subject}
           onChange={(event) => update(setSubject, event)}
           edit={edit}
         />
         <ToggleEditField
           inputType="date"
-          fieldName={placeOfStudy + ' start date'}
+          fieldName={'Start date'}
           value={startDate}
           onChange={(event) => update(setStartDate, event)}
           edit={edit}
         />
         <ToggleEditField
           inputType="date"
-          fieldName={placeOfStudy + ' end date'}
+          fieldName={'End date'}
           value={endDate}
           onChange={(event) => update(setEndDate, event)}
           edit={edit}
