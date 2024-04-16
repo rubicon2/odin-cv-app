@@ -9,7 +9,14 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
       (biggest, current) => (current.index > biggest ? current.index : biggest),
       -1,
     );
-    localEntries.push({ index: biggestIndex + 1 });
+    localEntries.push({
+      index: biggestIndex + 1,
+      companyName: '',
+      position: '',
+      duties: '',
+      startDate: '',
+      endDate: '',
+    });
     onChange(localEntries);
   }
 
