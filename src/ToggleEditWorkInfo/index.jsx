@@ -7,6 +7,8 @@ export default function ToggleEditWorkInfo({ edit }) {
   // Make a local copy to avoid mutating the original entries array.
   // I don't see what the problem is with mutating the array, then spreading the elements out into
   // a new array when calling setEntries(), but apparently this is better.
+  // Throughout this component, also avoided mutating state of elements in localEntries array, although in this instance
+  // it seemed to make no difference whether the objects within the array were changed directly or replaced with new altered objects.
   let localEntries = [...entries];
 
   function addBlankEntry() {
@@ -32,7 +34,7 @@ export default function ToggleEditWorkInfo({ edit }) {
 
   return (
     <div>
-      {localEntries.map((entry) => (
+      {localEntries.map((entry, index) => (
         <div
           key={`${entry.index}`}
           className="work-info-section input-flex-gap"
@@ -41,7 +43,11 @@ export default function ToggleEditWorkInfo({ edit }) {
             fieldName={'Company'}
             value={entry.companyName}
             onChange={(event) => {
-              entry.companyName = event.target.value;
+              // entry.companyName = event.target.value seemed to work fine, but for good practices, avoiding mutation of entry
+              localEntries[index] = {
+                ...entry,
+                companyName: event.target.value,
+              };
               setEntries(localEntries);
             }}
             edit={edit}
@@ -50,7 +56,10 @@ export default function ToggleEditWorkInfo({ edit }) {
             fieldName={'Position'}
             value={entry.position}
             onChange={(event) => {
-              entry.position = event.target.value;
+              localEntries[index] = {
+                ...entry,
+                position: event.target.value,
+              };
               setEntries(localEntries);
             }}
             edit={edit}
@@ -59,7 +68,10 @@ export default function ToggleEditWorkInfo({ edit }) {
             fieldName={'Responsibilities'}
             value={entry.duties}
             onChange={(event) => {
-              entry.duties = event.target.value;
+              localEntries[index] = {
+                ...entry,
+                duties: event.target.value,
+              };
               setEntries(localEntries);
             }}
             edit={edit}
@@ -69,7 +81,10 @@ export default function ToggleEditWorkInfo({ edit }) {
             inputType="date"
             value={entry.startDate}
             onChange={(event) => {
-              entry.startDate = event.target.value;
+              localEntries[index] = {
+                ...entry,
+                startDate: event.target.value,
+              };
               setEntries(localEntries);
             }}
             edit={edit}
@@ -79,7 +94,10 @@ export default function ToggleEditWorkInfo({ edit }) {
             inputType="date"
             value={entry.endDate}
             onChange={(event) => {
-              entry.endDate = event.target.value;
+              localEntries[index] = {
+                ...entry,
+                endDate: event.target.value,
+              };
               setEntries(localEntries);
             }}
             edit={edit}
