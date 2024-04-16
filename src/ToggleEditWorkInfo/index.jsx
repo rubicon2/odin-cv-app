@@ -1,7 +1,12 @@
 import ToggleEditField from '../ToggleEditField';
+import { useState } from 'react';
 import './index.css';
 
-export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
+export default function ToggleEditWorkInfo({ edit }) {
+  const [entries, setEntries] = useState([]);
+  // Make a local copy to avoid mutating the original entries array.
+  // I don't see what the problem is with mutating the array, then spreading the elements out into
+  // a new array when calling setEntries(), but apparently this is better.
   let localEntries = [...entries];
 
   function addBlankEntry() {
@@ -17,12 +22,12 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
       startDate: '',
       endDate: '',
     });
-    onChange(localEntries);
+    setEntries(localEntries);
   }
 
   function deleteEntry(entry) {
     localEntries = localEntries.filter((e) => e != entry);
-    onChange(localEntries);
+    setEntries(localEntries);
   }
 
   return (
@@ -37,7 +42,7 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
             value={entry.companyName}
             onChange={(event) => {
               entry.companyName = event.target.value;
-              onChange(localEntries);
+              setEntries(localEntries);
             }}
             edit={edit}
           />
@@ -46,7 +51,7 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
             value={entry.position}
             onChange={(event) => {
               entry.position = event.target.value;
-              onChange(localEntries);
+              setEntries(localEntries);
             }}
             edit={edit}
           />
@@ -55,7 +60,7 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
             value={entry.duties}
             onChange={(event) => {
               entry.duties = event.target.value;
-              onChange(localEntries);
+              setEntries(localEntries);
             }}
             edit={edit}
           />
@@ -65,7 +70,7 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
             value={entry.startDate}
             onChange={(event) => {
               entry.startDate = event.target.value;
-              onChange(localEntries);
+              setEntries(localEntries);
             }}
             edit={edit}
           />
@@ -75,7 +80,7 @@ export default function ToggleEditWorkInfo({ entries, onChange, edit }) {
             value={entry.endDate}
             onChange={(event) => {
               entry.endDate = event.target.value;
-              onChange(localEntries);
+              setEntries(localEntries);
             }}
             edit={edit}
           />

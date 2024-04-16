@@ -17,7 +17,6 @@ function App() {
   const [uniInfo, setUniInfo] = useState({});
   const [educationSubmitted, setEducationSubmitted] = useState(false);
 
-  const [workInfo, setWorkInfo] = useState([]);
   const [workSubmitted, setWorkSubmitted] = useState(false);
 
   // THINK ABOUT HAVING COLLAPSIBLE SECTION FOR EDUCATION INPUT! THAT WOULD BE SWEET!
@@ -76,11 +75,7 @@ function App() {
         submitted={workSubmitted}
       >
         <h2>Work Experience</h2>
-        <ToggleEditWorkInfo
-          entries={workInfo}
-          onChange={(infoArr) => setWorkInfo(infoArr)}
-          edit={!workSubmitted}
-        />
+        <ToggleEditWorkInfo edit={!workSubmitted} />
       </Container>
     </>
   );
