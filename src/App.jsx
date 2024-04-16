@@ -11,6 +11,7 @@ function App() {
   const [surname, setSurname] = useState('');
   const [generalSubmitted, setGeneralSubmitted] = useState(false);
 
+  const [educationActiveIndex, setEducationActiveIndex] = useState(0);
   const [schoolInfo, setSchoolInfo] = useState({});
   const [collegeInfo, setCollegeInfo] = useState({});
   const [uniInfo, setUniInfo] = useState({});
@@ -51,16 +52,22 @@ function App() {
         <ToggleEditStudyInfo
           placeOfStudy="School"
           onChange={(infoObj) => setSchoolInfo(infoObj)}
+          isActive={educationActiveIndex === 0}
+          onOpen={() => setEducationActiveIndex(0)}
           edit={!educationSubmitted}
         />
         <ToggleEditStudyInfo
           placeOfStudy="College"
           onChange={(infoObj) => setCollegeInfo(infoObj)}
+          isActive={educationActiveIndex === 1}
+          onOpen={() => setEducationActiveIndex(1)}
           edit={!educationSubmitted}
         />
         <ToggleEditStudyInfo
           placeOfStudy="University"
           onChange={(infoObj) => setUniInfo(infoObj)}
+          isActive={educationActiveIndex === 2}
+          onOpen={() => setEducationActiveIndex(2)}
           edit={!educationSubmitted}
         />
       </Container>
