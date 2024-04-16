@@ -64,7 +64,10 @@ function App() {
           edit={!educationSubmitted}
         />
       </Container>
-      <Container onButtonClick={() => setWorkSubmitted(!workSubmitted)}>
+      <Container
+        onButtonClick={() => setWorkSubmitted(!workSubmitted)}
+        submitted={workSubmitted}
+      >
         <h2>Work Experience</h2>
         <ToggleEditWorkInfo
           entries={workInfo}
