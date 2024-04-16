@@ -1,0 +1,22 @@
+.add-work-button {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  margin: 0 auto;
+}
+
+.add-work-button:hover {
+  background-color: black;
+}
+
+.work-info-section {
+  display: flex;
+  flex-direction: column;
+  border-bottom: 2px solid black;
+
+  padding: 2rem 0;
+}
+
+.work-info-section:last-of-type {
+  padding-bottom: 1rem;
+  border: none;
+}
