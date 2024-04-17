@@ -1,6 +1,7 @@
 import ToggleEditField from './ToggleEditField';
-import ToggleEditStudyInfo from './ToggleEditStudyInfo';
 import ToggleEditWorkInfo from './ToggleEditWorkInfo';
+import Accordion from './Accordion';
+import StudyFieldGroup from './StudyFieldGroup';
 import Container from './Container';
 
 import { useState } from 'react';
@@ -11,7 +12,6 @@ function App() {
   const [surname, setSurname] = useState('');
   const [generalSubmitted, setGeneralSubmitted] = useState(false);
 
-  const [educationActiveIndex, setEducationActiveIndex] = useState(0);
   const [schoolInfo, setSchoolInfo] = useState({});
   const [collegeInfo, setCollegeInfo] = useState({});
   const [uniInfo, setUniInfo] = useState({});
@@ -43,33 +43,57 @@ function App() {
               edit={!generalSubmitted}
             />
           </Container>
+
           <Container
             onButtonClick={() => setEducationSubmitted(!educationSubmitted)}
             submitted={educationSubmitted}
           >
             <h2>Education</h2>
-            <ToggleEditStudyInfo
-              placeOfStudy="School"
-              onChange={(infoObj) => setSchoolInfo(infoObj)}
-              isActive={educationActiveIndex === 0}
-              onOpen={() => setEducationActiveIndex(0)}
-              edit={!educationSubmitted}
-            />
-            <ToggleEditStudyInfo
-              placeOfStudy="College"
-              onChange={(infoObj) => setCollegeInfo(infoObj)}
-              isActive={educationActiveIndex === 1}
-              onOpen={() => setEducationActiveIndex(1)}
-              edit={!educationSubmitted}
-            />
-            <ToggleEditStudyInfo
-              placeOfStudy="University"
-              onChange={(infoObj) => setUniInfo(infoObj)}
-              isActive={educationActiveIndex === 2}
-              onOpen={() => setEducationActiveIndex(2)}
-              edit={!educationSubmitted}
-            />
+            <Accordion
+              accordionItems={[
+                {
+                  id: 0,
+                  label: 'School',
+                  content: (
+                    <>
+                      <StudyFieldGroup
+                        placeOfStudy="School"
+                        onChange={setSchoolInfo}
+                        edit={!educationSubmitted}
+                      />
+                    </>
+                  ),
+                },
+                {
+                  id: 1,
+                  label: 'College',
+                  content: (
+                    <>
+                      <StudyFieldGroup
+                        placeOfStudy="College"
+                        onChange={setCollegeInfo}
+                        edit={!educationSubmitted}
+                      />
+                    </>
+                  ),
+                },
+                {
+                  id: 2,
+                  label: 'University',
+                  content: (
+                    <>
+                      <StudyFieldGroup
+                        placeOfStudy="University"
+                        onChange={setUniInfo}
+                        edit={!educationSubmitted}
+                      />
+                    </>
+                  ),
+                },
+              ]}
+            ></Accordion>
           </Container>
+
           <Container
             onButtonClick={() => setWorkSubmitted(!workSubmitted)}
             submitted={workSubmitted}
