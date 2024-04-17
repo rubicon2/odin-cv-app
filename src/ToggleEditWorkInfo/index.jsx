@@ -1,4 +1,4 @@
-import ToggleEditField from '../ToggleEditField';
+import WorkFieldGroup from '../WorkFieldGroup';
 import { useState } from 'react';
 import './index.css';
 
@@ -39,66 +39,9 @@ export default function ToggleEditWorkInfo({ edit }) {
           key={`${entry.index}`}
           className="work-info-section input-flex-gap"
         >
-          <ToggleEditField
-            fieldName={'Company'}
-            value={entry.companyName}
-            onChange={(event) => {
-              // entry.companyName = event.target.value seemed to work fine, but for good practices, avoiding mutation of entry
-              localEntries[index] = {
-                ...entry,
-                companyName: event.target.value,
-              };
-              setEntries(localEntries);
-            }}
-            edit={edit}
-          />
-          <ToggleEditField
-            fieldName={'Position'}
-            value={entry.position}
-            onChange={(event) => {
-              localEntries[index] = {
-                ...entry,
-                position: event.target.value,
-              };
-              setEntries(localEntries);
-            }}
-            edit={edit}
-          />
-          <ToggleEditField
-            fieldName={'Responsibilities'}
-            value={entry.duties}
-            onChange={(event) => {
-              localEntries[index] = {
-                ...entry,
-                duties: event.target.value,
-              };
-              setEntries(localEntries);
-            }}
-            edit={edit}
-          />
-          <ToggleEditField
-            fieldName={'Start Date'}
-            inputType="date"
-            value={entry.startDate}
-            onChange={(event) => {
-              localEntries[index] = {
-                ...entry,
-                startDate: event.target.value,
-              };
-              setEntries(localEntries);
-            }}
-            edit={edit}
-          />
-          <ToggleEditField
-            fieldName={'End Date'}
-            inputType="date"
-            value={entry.endDate}
-            onChange={(event) => {
-              localEntries[index] = {
-                ...entry,
-                endDate: event.target.value,
-              };
-              setEntries(localEntries);
+          <WorkFieldGroup
+            onChange={(infoObj) => {
+              localEntries[index] = { index: entry.index, ...infoObj };
             }}
             edit={edit}
           />
