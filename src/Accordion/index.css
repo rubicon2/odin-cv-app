@@ -1,13 +1,14 @@
-.accordion-item {
+.accordion {
   display: flex;
   flex-direction: column;
-  border-bottom: 2px solid black;
+}
 
-  padding: 2rem 0;
+.accordion-item {
+  border-bottom: 2px solid black;
+  padding: 1rem 0;
 }
 
 .accordion-item:last-of-type {
-  padding-bottom: 1rem;
   border: none;
 }
 
