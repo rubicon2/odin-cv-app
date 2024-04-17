@@ -17,7 +17,7 @@
 .cv-preview-area {
   position: sticky;
   top: 1rem;
-  height: calc(100vh - 3rem);
+  height: calc(100vh - 2rem);
 
   background-color: var(--light-color);
   border-radius: 10px;
