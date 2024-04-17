@@ -35,10 +35,7 @@ export default function ToggleEditWorkInfo({ edit }) {
   return (
     <div>
       {localEntries.map((entry, index) => (
-        <div
-          key={`${entry.index}`}
-          className="work-info-section input-flex-gap"
-        >
+        <div key={entry.index}>
           <WorkFieldGroup
             onChange={(infoObj) => {
               localEntries[index] = { index: entry.index, ...infoObj };
