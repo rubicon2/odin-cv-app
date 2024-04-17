@@ -102,7 +102,7 @@ function App() {
             <ToggleEditWorkInfo edit={!workSubmitted} />
           </Container>
         </div>
-        <div className="app-container-col">
+        <div>
           <div className="cv-preview-area"></div>
         </div>
       </div>
