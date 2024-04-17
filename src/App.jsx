@@ -62,6 +62,7 @@ function App() {
                     <>
                       <StudyFieldGroup
                         placeOfStudy="School"
+                        value={schoolInfo}
                         onChange={setSchoolInfo}
                         edit={!educationSubmitted}
                       />
@@ -75,6 +76,7 @@ function App() {
                     <>
                       <StudyFieldGroup
                         placeOfStudy="College"
+                        value={collegeInfo}
                         onChange={setCollegeInfo}
                         edit={!educationSubmitted}
                       />
@@ -88,6 +90,7 @@ function App() {
                     <>
                       <StudyFieldGroup
                         placeOfStudy="University"
+                        value={uniInfo}
                         onChange={setUniInfo}
                         edit={!educationSubmitted}
                       />
