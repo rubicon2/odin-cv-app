@@ -10,7 +10,7 @@ export default function Container({
     <div className={`container ${className}`}>
       {children}
       <button className="container-button" onClick={onButtonClick}>
-        {submitted ? 'Edit' : 'Submit'}
+        {submitted ? 'Edit' : 'Save'}
       </button>
     </div>
   );
