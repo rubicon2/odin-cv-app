@@ -2,10 +2,10 @@ import './index.css';
 
 export default function ToggleEditField({
   fieldName,
-  inputType = 'text',
   value,
   onChange,
-  edit,
+  inputType = 'text',
+  edit = true,
 }) {
   return (
     <div className="toggle-edit-field">
