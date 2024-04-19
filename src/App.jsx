@@ -1,9 +1,6 @@
-import ToggleEditWorkInfo from './components/ToggleEditWorkInfo';
-
 import Container from './components/Container';
 import ToggleEditField from './components/ToggleEditField';
-import StudyFieldGroup from './components/StudyFieldGroup';
-import WorkFieldGroup from './components/WorkFieldGroup';
+import ToggleEditFieldGroup from './components/ToggleEditFieldGroup';
 
 import { CvAppReducer, initialState } from './reducers/CvAppReducer';
 import { useReducer } from 'react';
@@ -62,7 +59,13 @@ function App() {
             submitted={!state.editEducation}
           >
             <h2>Education</h2>
-            <StudyFieldGroup
+            <ToggleEditFieldGroup
+              fields={[
+                { name: 'Institution', key: 'place' },
+                { name: 'Qualitification(s)', key: 'subject' },
+                { name: 'Start date', key: 'startDate' },
+                { name: 'End date', key: 'endDate' },
+              ]}
               values={state.education[0]}
               onChange={(entry) =>
                 dispatch({ type: 'changed_education', entry })
@@ -80,10 +83,16 @@ function App() {
             submitted={!state.editWork}
           >
             <h2>Work Experience</h2>
-
-            <ToggleEditWorkInfo
-              values={state.work}
-              dispatch={dispatch}
+            <ToggleEditFieldGroup
+              fields={[
+                { name: 'Company', key: 'company' },
+                { name: 'Role', key: 'role' },
+                { name: 'Duties', key: 'duties' },
+                { name: 'Start date', key: 'startDate' },
+                { name: 'End date', key: 'endDate' },
+              ]}
+              values={state.work[0]}
+              onChange={(entry) => dispatch({ type: 'changed_work', entry })}
               edit={state.editWork}
             />
           </Container>
