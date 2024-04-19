@@ -1,11 +1,11 @@
-import ToggleEditWorkInfo from './ToggleEditWorkInfo';
+import ToggleEditWorkInfo from './components/ToggleEditWorkInfo';
 
-import Container from './Container';
-import Accordion from './Accordion';
-import DynamicForm from './DynamicForm';
-import ToggleEditField from './ToggleEditField';
-import StudyFieldGroup from './StudyFieldGroup';
-import WorkFieldGroup from './WorkFieldGroup';
+import Container from './components/Container';
+import Accordion from './components/Accordion';
+import DynamicForm from './components/DynamicForm';
+import ToggleEditField from './components/ToggleEditField';
+import StudyFieldGroup from './components/StudyFieldGroup';
+import WorkFieldGroup from './components/WorkFieldGroup';
 
 import { useState } from 'react';
 
