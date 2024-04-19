@@ -1,28 +1,17 @@
 import ToggleEditWorkInfo from './components/ToggleEditWorkInfo';
 
 import Container from './components/Container';
-import Accordion from './components/Accordion';
-import DynamicForm from './components/DynamicForm';
 import ToggleEditField from './components/ToggleEditField';
 import StudyFieldGroup from './components/StudyFieldGroup';
 import WorkFieldGroup from './components/WorkFieldGroup';
 
-import { useState } from 'react';
+import { CvAppReducer, initialState } from './reducers/CvAppReducer';
+import { useReducer } from 'react';
 
 import './App.css';
 
 function App() {
-  const [firstName, setFirstName] = useState('');
-  const [surname, setSurname] = useState('');
-  const [generalSubmitted, setGeneralSubmitted] = useState(false);
-
-  const [schoolInfo, setSchoolInfo] = useState({});
-  const [collegeInfo, setCollegeInfo] = useState({});
-  const [uniInfo, setUniInfo] = useState({});
-  const [educationSubmitted, setEducationSubmitted] = useState(false);
-
-  const [workSubmitted, setWorkSubmitted] = useState(false);
-
+  const [state, dispatch] = useReducer(CvAppReducer, initialState);
   return (
     <>
       <h1>CV App</h1>
@@ -30,83 +19,73 @@ function App() {
         <div className="app-container-col">
           <Container
             className="input-flex-gap"
-            onButtonClick={() => setGeneralSubmitted(!generalSubmitted)}
-            submitted={generalSubmitted}
+            onButtonClick={() =>
+              state.editGeneral
+                ? dispatch({ type: 'locked_general' })
+                : dispatch({ type: 'unlocked_general' })
+            }
+            submitted={!state.editGeneral}
           >
             <h2>General</h2>
+
             <ToggleEditField
               fieldName="First Name"
-              onChange={(event) => setFirstName(event.target.value)}
-              value={firstName}
-              edit={!generalSubmitted}
+              onChange={(event) =>
+                dispatch({
+                  type: 'changed_first_name',
+                  firstName: event.target.value,
+                })
+              }
+              value={state.firstName}
+              edit={state.editGeneral}
             />
+
             <ToggleEditField
               fieldName="Surname"
-              onChange={(event) => setSurname(event.target.value)}
-              value={surname}
-              edit={!generalSubmitted}
+              onChange={(event) =>
+                dispatch({
+                  type: 'changed_last_name',
+                  lastName: event.target.value,
+                })
+              }
+              value={state.lastName}
+              edit={state.editGeneral}
             />
           </Container>
 
           <Container
-            onButtonClick={() => setEducationSubmitted(!educationSubmitted)}
-            submitted={educationSubmitted}
+            onButtonClick={() =>
+              state.editEducation
+                ? dispatch({ type: 'locked_education' })
+                : dispatch({ type: 'unlocked_education' })
+            }
+            submitted={!state.editEducation}
           >
             <h2>Education</h2>
-            <Accordion
-              accordionItems={[
-                {
-                  id: 0,
-                  label: 'School',
-                  content: (
-                    <>
-                      <StudyFieldGroup
-                        placeOfStudy="School"
-                        value={schoolInfo}
-                        onChange={setSchoolInfo}
-                        edit={!educationSubmitted}
-                      />
-                    </>
-                  ),
-                },
-                {
-                  id: 1,
-                  label: 'College',
-                  content: (
-                    <>
-                      <StudyFieldGroup
-                        placeOfStudy="College"
-                        value={collegeInfo}
-                        onChange={setCollegeInfo}
-                        edit={!educationSubmitted}
-                      />
-                    </>
-                  ),
-                },
-                {
-                  id: 2,
-                  label: 'University',
-                  content: (
-                    <>
-                      <StudyFieldGroup
-                        placeOfStudy="University"
-                        value={uniInfo}
-                        onChange={setUniInfo}
-                        edit={!educationSubmitted}
-                      />
-                    </>
-                  ),
-                },
-              ]}
-            ></Accordion>
+            <StudyFieldGroup
+              values={state.education[0]}
+              onChange={(entry) =>
+                dispatch({ type: 'changed_education', entry })
+              }
+              edit={state.editEducation}
+            />
           </Container>
 
           <Container
-            onButtonClick={() => setWorkSubmitted(!workSubmitted)}
-            submitted={workSubmitted}
+            onButtonClick={() =>
+              state.editWork
+                ? dispatch({ type: 'locked_work' })
+                : dispatch({ type: 'unlocked_work' })
+            }
+            submitted={!state.editWork}
           >
             <h2>Work Experience</h2>
-            <ToggleEditWorkInfo edit={!workSubmitted} />
+
+            <ToggleEditWorkInfo
+              values={state.work}
+              dispatch={dispatch}
+              edit={state.editWork}
+            />
           </Container>
         </div>
         <div>
