@@ -1,7 +1,8 @@
-import Container from './components/Container';
+import CollapsibleContainer from './components/CollapsibleContainer';
 import ToggleEditField from './components/ToggleEditField';
 import ToggleEditFieldGroup from './components/ToggleEditFieldGroup';
 import DynamicContainer from './components/DynamicContainer';
+import EditSaveButton from './components/EditSaveButton';
 
 import { CvAppReducer, initialState } from './reducers/CvAppReducer';
 import { useReducer } from 'react';
@@ -15,17 +16,10 @@ function App() {
       <h1>CV App</h1>
       <div className="app-container">
         <div className="app-container-col">
-          <Container
+          <CollapsibleContainer
             className="input-flex-gap"
-            onButtonClick={() =>
-              state.editGeneral
-                ? dispatch({ type: 'locked_general' })
-                : dispatch({ type: 'unlocked_general' })
-            }
-            submitted={!state.editGeneral}
+            heading={<h2>General</h2>}
           >
-            <h2>General</h2>
-
             <ToggleEditField
               fieldName="First Name"
               onChange={(event) =>
@@ -49,17 +43,21 @@ function App() {
               value={state.lastName}
               edit={state.editGeneral}
             />
-          </Container>
 
-          <Container
-            onButtonClick={() =>
-              state.editEducation
-                ? dispatch({ type: 'locked_education' })
-                : dispatch({ type: 'unlocked_education' })
-            }
-            submitted={!state.editEducation}
+            <EditSaveButton
+              onClick={() =>
+                state.editGeneral
+                  ? dispatch({ type: 'locked_general' })
+                  : dispatch({ type: 'unlocked_general' })
+              }
+              submitted={!state.editGeneral}
+            />
+          </CollapsibleContainer>
+
+          <CollapsibleContainer
+            className="input-flex-gap"
+            heading={<h2>Education</h2>}
           >
-            <h2>Education</h2>
             <DynamicContainer
               values={state.education}
               component={ToggleEditFieldGroup}
@@ -81,17 +79,21 @@ function App() {
               }
               edit={state.editEducation}
             />
-          </Container>
 
-          <Container
-            onButtonClick={() =>
-              state.editWork
-                ? dispatch({ type: 'locked_work' })
-                : dispatch({ type: 'unlocked_work' })
-            }
-            submitted={!state.editWork}
+            <EditSaveButton
+              onClick={() =>
+                state.editEducation
+                  ? dispatch({ type: 'locked_education' })
+                  : dispatch({ type: 'unlocked_education' })
+              }
+              submitted={!state.editEducation}
+            />
+          </CollapsibleContainer>
+
+          <CollapsibleContainer
+            className="input-flex-gap"
+            heading={<h2>Work Experience</h2>}
           >
-            <h2>Work Experience</h2>
             <DynamicContainer
               values={state.work}
               component={ToggleEditFieldGroup}
@@ -111,7 +113,16 @@ function App() {
               onDelete={(entry) => dispatch({ type: 'removed_work', entry })}
               edit={state.editWork}
             />
-          </Container>
+
+            <EditSaveButton
+              onClick={() =>
+                state.editWork
+                  ? dispatch({ type: 'locked_work' })
+                  : dispatch({ type: 'unlocked_work' })
+              }
+              submitted={!state.editWork}
+            />
+          </CollapsibleContainer>
         </div>
         <div>
           <div className="cv-preview-area"></div>

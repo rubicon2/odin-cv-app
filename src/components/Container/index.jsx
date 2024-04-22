@@ -1,17 +1,5 @@
 import './index.css';
 
-export default function Container({
-  children,
-  onButtonClick,
-  submitted,
-  className = '',
-}) {
-  return (
-    <div className={`container ${className}`}>
-      {children}
-      <button className="container-button" onClick={onButtonClick}>
-        {submitted ? 'Edit' : 'Save'}
-      </button>
-    </div>
-  );
+export default function Container({ children, className = '' }) {
+  return <div className={`container ${className}`}>{children}</div>;
 }

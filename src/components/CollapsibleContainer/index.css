@@ -1,0 +1,9 @@
+.collapsible-title {
+  cursor: pointer;
+  user-select: none;
+}
+
+.no-child-margin-padding > * {
+  margin: 0;
+  padding: 0;
+}
