@@ -63,6 +63,7 @@ function App() {
             <DynamicContainer
               values={state.education}
               component={ToggleEditFieldGroup}
+              componentValueName="values"
               componentProps={{
                 fields: [
                   { name: 'Institution', key: 'place' },
@@ -94,6 +95,7 @@ function App() {
             <DynamicContainer
               values={state.work}
               component={ToggleEditFieldGroup}
+              componentValueName="values"
               componentProps={{
                 fields: [
                   { name: 'Company', key: 'company' },

@@ -9,6 +9,7 @@ export default function DynamicContainer({
   values,
   component,
   componentProps,
+  componentValueName,
   onAdd,
   onDelete,
   edit,
@@ -16,7 +17,7 @@ export default function DynamicContainer({
   const children = values.map((value, index) => {
     return (
       <div className="dynamic-container-item" key={value.id || index}>
-        {component({ ...componentProps, values: value })}
+        {component({ ...componentProps, [componentValueName]: value })}
         {edit && (
           <button
             className="dynamic-container-delete-button"
