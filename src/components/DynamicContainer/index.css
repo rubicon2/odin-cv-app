@@ -5,7 +5,7 @@
 }
 
 .dynamic-container-item {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.322);
+  border-bottom: 2px solid var(--divider-color);
 }
 .dynamic-container-item:last-of-type {
   border-bottom: none;

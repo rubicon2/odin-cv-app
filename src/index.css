@@ -9,6 +9,7 @@
   --dark-accent-color: #535bf2;
   --light-danger-color: #f25375;
   --dark-danger-color: #da4c6b;
+  --divider-color: rgba(0, 0, 0, 0.322);
 
   color-scheme: light dark;
   color: var(--light-color);
