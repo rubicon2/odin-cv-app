@@ -44,6 +44,32 @@ function App() {
               edit={state.editGeneral}
             />
 
+            <ToggleEditField
+              fieldName="Email"
+              inputType="email"
+              onChange={(event) =>
+                dispatch({
+                  type: 'changed_email',
+                  email: event.target.value,
+                })
+              }
+              value={state.email}
+              edit={state.editGeneral}
+            />
+
+            <ToggleEditField
+              fieldName="Telephone"
+              inputType="tel"
+              onChange={(event) =>
+                dispatch({
+                  type: 'changed_tel',
+                  tel: event.target.value,
+                })
+              }
+              value={state.tel}
+              edit={state.editGeneral}
+            />
+
             <EditSaveButton
               onClick={() =>
                 state.editGeneral

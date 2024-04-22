@@ -4,6 +4,8 @@ export const initialState = {
   editWork: true,
   firstName: 'Fred',
   lastName: 'Bloggs',
+  email: '',
+  tel: '',
   education: [
     {
       id: 0,
@@ -96,6 +98,18 @@ export function CvAppReducer(state, action) {
       return {
         ...state,
         lastName: action.lastName,
+      };
+    }
+    case 'changed_email': {
+      return {
+        ...state,
+        email: action.email,
+      };
+    }
+    case 'changed_tel': {
+      return {
+        ...state,
+        tel: action.tel,
       };
     }
     case 'added_education': {
