@@ -1,7 +1,7 @@
 import ToggleEditField from '../ToggleEditField';
 import './index.css';
 
-// Fields is an array of objects, containing a field name and field key. It is used to give each field a
+// Fields is an array of objects, containing a field name, key and input type. It is used to give each field a
 // user-friendly name, and so you can select which keys from the values object to show. E.g. you may not
 // want to show the id/index of the object to the user, in which case that key can be left out of the fields array.
 
@@ -19,6 +19,7 @@ export default function ToggleEditFieldGroup({
           <ToggleEditField
             key={field.key}
             fieldName={field.name}
+            inputType={field.type}
             value={values[field.key]}
             onChange={(event) =>
               onChange({

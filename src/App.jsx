@@ -66,8 +66,8 @@ function App() {
                 fields: [
                   { name: 'Institution', key: 'place' },
                   { name: 'Qualification(s)', key: 'subject' },
-                  { name: 'Start date', key: 'startDate' },
-                  { name: 'End date', key: 'endDate' },
+                  { name: 'Start date', key: 'startDate', type: 'date' },
+                  { name: 'End date', key: 'endDate', type: 'date' },
                 ],
                 onChange: (entry) =>
                   dispatch({ type: 'changed_education', entry }),
@@ -102,9 +102,9 @@ function App() {
                 fields: [
                   { name: 'Company', key: 'company' },
                   { name: 'Role', key: 'role' },
-                  { name: 'Duties', key: 'duties' },
-                  { name: 'Start date', key: 'startDate' },
-                  { name: 'End date', key: 'endDate' },
+                  { name: 'Summary', key: 'duties' },
+                  { name: 'Start date', key: 'startDate', type: 'date' },
+                  { name: 'End date', key: 'endDate', type: 'date' },
                 ],
                 onChange: (entry) => dispatch({ type: 'changed_work', entry }),
                 edit: state.editWork,
