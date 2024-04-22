@@ -14,9 +14,9 @@ export default function CollapsibleContainer({
 
   return (
     <Container className={className}>
-      <div className="collapsible-title" onClick={() => setOpen(!open)}>
+      <button className="collapsible-button" onClick={() => setOpen(!open)}>
         {heading}
-      </div>
+      </button>
       {open && children}
     </Container>
   );
