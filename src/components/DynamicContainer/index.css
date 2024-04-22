@@ -4,6 +4,13 @@
   gap: 1rem;
 }
 
+.dynamic-container-item {
+  border-bottom: 2px solid rgba(0, 0, 0, 0.322);
+}
+.dynamic-container-item:last-of-type {
+  border-bottom: none;
+}
+
 .dynamic-container-add-button,
 .dynamic-container-delete-button {
   color: white;
@@ -24,7 +31,10 @@
 
 .dynamic-container-delete-button {
   background-color: var(--light-danger-color);
-  margin-top: 1rem;
+  margin: 1rem 0;
+}
+.dynamic-container-item:last-of-type > .dynamic-container-delete-button {
+  margin-bottom: 0;
 }
 
 .dynamic-container-delete-button:hover,
