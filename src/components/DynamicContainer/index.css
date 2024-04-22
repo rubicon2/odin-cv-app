@@ -13,9 +13,13 @@
 .dynamic-container-add-button {
   background-color: var(--light-accent-color);
 }
-.dynamic-container-add-button:hover,
-.dynamic-container-add-button:focus {
+.dynamic-container-add-button:hover:enabled,
+.dynamic-container-add-button:focus:enabled {
   background-color: var(--dark-accent-color);
+}
+.dynamic-container-add-button:disabled {
+  opacity: 0.5;
+  cursor: default;
 }
 
 .dynamic-container-delete-button {

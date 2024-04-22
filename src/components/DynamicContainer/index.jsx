@@ -13,28 +13,35 @@ export default function DynamicContainer({
   onAdd,
   onDelete,
   edit,
+  maxChildren,
 }) {
   const children = values.map((value, index) => {
-    return (
-      <div className="dynamic-container-item" key={value.id || index}>
-        {component({ ...componentProps, [componentValueName]: value })}
-        {edit && (
-          <button
-            className="dynamic-container-delete-button"
-            onClick={() => onDelete(value)}
-          >
-            Delete
-          </button>
-        )}
-      </div>
-    );
+    if (!maxChildren || index < maxChildren) {
+      return (
+        <div className="dynamic-container-item" key={value.id || index}>
+          {component({ ...componentProps, [componentValueName]: value })}
+          {edit && (
+            <button
+              className="dynamic-container-delete-button"
+              onClick={() => onDelete(value)}
+            >
+              Delete
+            </button>
+          )}
+        </div>
+      );
+    }
   });
 
   return (
     <div className="dynamic-container">
       {children}
       {edit && (
-        <button className="dynamic-container-add-button" onClick={onAdd}>
+        <button
+          className="dynamic-container-add-button"
+          disabled={values.length >= maxChildren}
+          onClick={onAdd}
+        >
           Add
         </button>
       )}
