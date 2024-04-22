@@ -11,13 +11,10 @@ export default function CollapsibleContainer({
   initialOpen = true,
 }) {
   const [open, setOpen] = useState(initialOpen);
-  const titleClass = open
-    ? 'collapsible-title'
-    : 'collapsible-title no-child-margin-padding';
 
   return (
     <Container className={className}>
-      <div className={titleClass} onClick={() => setOpen(!open)}>
+      <div className="collapsible-title" onClick={() => setOpen(!open)}>
         {heading}
       </div>
       {open && children}

@@ -3,7 +3,6 @@
   user-select: none;
 }
 
-.no-child-margin-padding > * {
+.collapsible-title > * {
   margin: 0;
-  padding: 0;
 }
