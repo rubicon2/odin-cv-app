@@ -20,15 +20,10 @@
 
 .dynamic-container-delete-button {
   background-color: var(--light-danger-color);
+  margin-top: 1rem;
 }
 
 .dynamic-container-delete-button:hover,
 .dynamic-container-delete-button:focus {
   background-color: var(--dark-danger-color);
-}
-
-.dynamic-container-item {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
 }
