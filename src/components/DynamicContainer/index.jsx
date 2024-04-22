@@ -36,6 +36,9 @@ export default function DynamicContainer({
   return (
     <div className="dynamic-container">
       {children}
+      {!edit && children.length === 0 && (
+        <div className="dynamic-container-none-text">None!</div>
+      )}
       {edit && (
         <button
           className="dynamic-container-add-button"

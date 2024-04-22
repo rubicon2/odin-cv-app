@@ -31,3 +31,9 @@
 .dynamic-container-delete-button:focus {
   background-color: var(--dark-danger-color);
 }
+
+.dynamic-container-none-text {
+  /* Mimic button padding so nothing jiggles about when the save/edit button is clicked */
+  /* Why is it jiggling about anyway... ? */
+  padding: 0.6em 0;
+}
