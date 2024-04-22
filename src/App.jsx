@@ -1,6 +1,7 @@
 import Container from './components/Container';
 import ToggleEditField from './components/ToggleEditField';
 import ToggleEditFieldGroup from './components/ToggleEditFieldGroup';
+import DynamicContainer from './components/DynamicContainer';
 
 import { CvAppReducer, initialState } from './reducers/CvAppReducer';
 import { useReducer } from 'react';
@@ -59,16 +60,23 @@ function App() {
             submitted={!state.editEducation}
           >
             <h2>Education</h2>
-            <ToggleEditFieldGroup
-              fields={[
-                { name: 'Institution', key: 'place' },
-                { name: 'Qualitification(s)', key: 'subject' },
-                { name: 'Start date', key: 'startDate' },
-                { name: 'End date', key: 'endDate' },
-              ]}
-              values={state.education[0]}
-              onChange={(entry) =>
-                dispatch({ type: 'changed_education', entry })
+            <DynamicContainer
+              values={state.education}
+              component={ToggleEditFieldGroup}
+              componentProps={{
+                fields: [
+                  { name: 'Institution', key: 'place' },
+                  { name: 'Qualitification(s)', key: 'subject' },
+                  { name: 'Start date', key: 'startDate' },
+                  { name: 'End date', key: 'endDate' },
+                ],
+                onChange: (entry) =>
+                  dispatch({ type: 'changed_education', entry }),
+                edit: state.editEducation,
+              }}
+              onAdd={() => dispatch({ type: 'added_education' })}
+              onDelete={(entry) =>
+                dispatch({ type: 'removed_education', entry })
               }
               edit={state.editEducation}
             />
@@ -83,16 +91,22 @@ function App() {
             submitted={!state.editWork}
           >
             <h2>Work Experience</h2>
-            <ToggleEditFieldGroup
-              fields={[
-                { name: 'Company', key: 'company' },
-                { name: 'Role', key: 'role' },
-                { name: 'Duties', key: 'duties' },
-                { name: 'Start date', key: 'startDate' },
-                { name: 'End date', key: 'endDate' },
-              ]}
-              values={state.work[0]}
-              onChange={(entry) => dispatch({ type: 'changed_work', entry })}
+            <DynamicContainer
+              values={state.work}
+              component={ToggleEditFieldGroup}
+              componentProps={{
+                fields: [
+                  { name: 'Company', key: 'company' },
+                  { name: 'Role', key: 'role' },
+                  { name: 'Duties', key: 'duties' },
+                  { name: 'Start date', key: 'startDate' },
+                  { name: 'End date', key: 'endDate' },
+                ],
+                onChange: (entry) => dispatch({ type: 'changed_work', entry }),
+                edit: state.editWork,
+              }}
+              onAdd={() => dispatch({ type: 'added_work' })}
+              onDelete={(entry) => dispatch({ type: 'removed_work', entry })}
               edit={state.editWork}
             />
           </Container>
