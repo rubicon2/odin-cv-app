@@ -51,7 +51,6 @@ function calculateNewId(arr) {
 export function CvAppReducer(state, action) {
   switch (action.type) {
     case 'locked_general': {
-      console.log(state);
       return {
         ...state,
         editGeneral: false,
