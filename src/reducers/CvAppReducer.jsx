@@ -105,7 +105,7 @@ export function CvAppReducer(state, action) {
           ...state.education,
           {
             ...blankEducationEntry,
-            index: calculateNewId(state.education),
+            id: calculateNewId(state.education),
           },
         ],
       };
