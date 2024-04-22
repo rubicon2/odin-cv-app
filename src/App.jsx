@@ -65,7 +65,7 @@ function App() {
               componentProps={{
                 fields: [
                   { name: 'Institution', key: 'place' },
-                  { name: 'Qualitification(s)', key: 'subject' },
+                  { name: 'Qualification(s)', key: 'subject' },
                   { name: 'Start date', key: 'startDate' },
                   { name: 'End date', key: 'endDate' },
                 ],
