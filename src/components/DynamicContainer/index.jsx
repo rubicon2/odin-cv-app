@@ -1,10 +1,12 @@
 import './index.css';
 
-// Can create and delete copies of a component.
-// The component type is passed in as a prop.
-// The prop values for the component are also passed in.
-// The values are passed down to each instance of the component.
-// onAdd and onDelete functions are passed as props.
+// Used to create and delete copies of a component and pass on their info as an array.
+// component type is passed in as a prop.
+// componentProps for the component are also passed in (e.g. onChange).
+// componentProps are passed down to each instance of the component.
+// values prop should be an array of whatever type the component is expecting.
+// componentValueName prop is used so correct name is used for the child components prop
+// e.g if child component needs to be passed a prop of name "megaProp" to populate a field, we can specify that.
 export default function DynamicContainer({
   values,
   component,
