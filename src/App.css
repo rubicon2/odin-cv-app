@@ -32,3 +32,14 @@
   text-align: left;
   color: var(--dark-color);
 }
+
+@media (max-width: 850px) {
+  #root {
+    padding: 1rem;
+  }
+
+  .app-container {
+    display: flex;
+    flex-direction: column;
+  }
+}
