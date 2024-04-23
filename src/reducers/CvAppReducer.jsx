@@ -4,8 +4,8 @@ export const initialState = {
   editWork: true,
   firstName: 'Fred',
   lastName: 'Bloggs',
-  email: '',
-  tel: '',
+  email: 'fred@bloggs.co.uk',
+  tel: '09936 347398',
   education: [
     {
       id: 0,
@@ -14,15 +14,32 @@ export const initialState = {
       startDate: '2003-09-01',
       endDate: '2008-07-31',
     },
+    {
+      id: 1,
+      place: 'Some College',
+      subject: '4 A levels',
+      startDate: '2008-09-03',
+      endDate: '2010-07-23',
+    },
   ],
   work: [
     {
       id: 0,
       company: 'Some Company',
       role: 'Some role',
-      duties: 'Some duties',
+      duties:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut diam quam nulla porttitor massa id. Urna cursus eget nunc scelerisque. Nullam non nisi est sit. Gravida rutrum quisque non tellus orci ac auctor. Nunc lobortis mattis aliquam faucibus purus in massa. Molestie ac feugiat sed lectus vestibulum.',
       startDate: '2014-10-06',
       endDate: '2023-12-22',
+    },
+    {
+      id: 1,
+      company: 'Another Company',
+      role: 'Another mega role',
+      duties:
+        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut diam quam nulla porttitor massa id. Urna cursus eget nunc scelerisque. Nullam non nisi est sit. Gravida rutrum quisque non tellus orci ac auctor. Nunc lobortis mattis aliquam faucibus purus in massa. Molestie ac feugiat sed lectus vestibulum.',
+      startDate: '2024-12-22',
+      endDate: '2024-12-22',
     },
   ],
 };
