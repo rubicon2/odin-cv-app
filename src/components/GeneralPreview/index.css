@@ -1,0 +1,12 @@
+.cv-general-preview {
+  text-align: center;
+  line-height: 2;
+}
+
+.cv-general-preview-name {
+  margin: 0;
+}
+
+.cv-general-preview-text {
+  font-weight: 600;
+}

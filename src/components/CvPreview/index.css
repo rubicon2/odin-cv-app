@@ -1,0 +1,36 @@
+.cv-preview > * {
+  margin: 1rem 0;
+}
+
+.cv-preview > *:first-child {
+  margin-top: 0;
+}
+
+.cv-preview > *:last-child {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.cv-preview-heading {
+  font-weight: 600;
+  font-size: 1.3rem;
+}
+
+.cv-preview-dates {
+  line-height: 0.5;
+}
+
+.cv-preview-section-heading {
+  font-weight: 700;
+  font-size: 1.8rem;
+  padding: 0.1em 0.2em;
+  margin-bottom: 0.5em;
+  background-color: var(--dark-color);
+  color: var(--light-color);
+}
+
+.cv-light-text {
+  line-height: 1.7;
+  font-weight: 300;
+}

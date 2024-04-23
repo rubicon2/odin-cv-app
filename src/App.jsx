@@ -8,6 +8,7 @@ import { CvAppReducer, initialState } from './reducers/CvAppReducer';
 import { useReducer } from 'react';
 
 import './App.css';
+import CvPreview from './components/CvPreview';
 
 function App() {
   const [state, dispatch] = useReducer(CvAppReducer, initialState);
@@ -151,7 +152,9 @@ function App() {
           </CollapsibleContainer>
         </div>
         <div>
-          <div className="cv-preview-area"></div>
+          <div className="cv-preview-area">
+            <CvPreview state={state} />
+          </div>
         </div>
       </div>
     </>

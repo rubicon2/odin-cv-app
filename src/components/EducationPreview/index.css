@@ -1,0 +1,20 @@
+.cv-education-preview-item {
+  padding-bottom: 1rem;
+  margin-bottom: 1rem;
+  border-bottom: 1px solid var(--divider-color);
+}
+.cv-education-preview-item:last-of-type {
+  padding-bottom: 0;
+  margin-bottom: 0;
+  border-bottom: none;
+}
+
+.cv-education-preview-place {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.cv-education-preview-qualifications {
+  margin-top: 1em;
+  max-width: 70%;
+}
