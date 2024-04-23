@@ -1,3 +1,7 @@
+.cv-preview {
+  word-break: break-word;
+}
+
 .cv-preview > * {
   margin: 1rem 0;
 }
