@@ -23,6 +23,7 @@
 
 .cv-preview-dates {
   line-height: 0.5;
+  color: var(--subtext-color);
 }
 
 .cv-preview-section-heading {

@@ -1,12 +1,13 @@
 .cv-general-preview {
   text-align: center;
-  line-height: 2;
+  line-height: 1.2;
 }
 
 .cv-general-preview-name {
-  margin: 0;
+  margin-bottom: 0.2rem;
 }
 
 .cv-general-preview-text {
   font-weight: 600;
+  color: var(--subtext-color);
 }
