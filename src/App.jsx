@@ -84,6 +84,7 @@ function App() {
           <CollapsibleContainer
             className="input-flex-gap"
             heading={<h2>Education</h2>}
+            initialOpen={false}
           >
             <DynamicContainer
               values={state.education}
@@ -120,6 +121,7 @@ function App() {
           <CollapsibleContainer
             className="input-flex-gap"
             heading={<h2>Work Experience</h2>}
+            initialOpen={false}
           >
             <DynamicContainer
               values={state.work}
