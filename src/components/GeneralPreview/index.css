@@ -10,4 +10,5 @@
 .cv-general-preview-text {
   font-weight: 600;
   color: var(--subtext-color);
+  font-style: italic;
 }

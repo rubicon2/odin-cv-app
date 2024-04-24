@@ -9,6 +9,9 @@
   margin-bottom: 0;
   border-bottom: none;
 }
+.cv-work-preview-role {
+  font-style: italic;
+}
 
 .cv-work-preview-duties {
   margin-top: 1em;
