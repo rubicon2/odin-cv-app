@@ -5,13 +5,14 @@ import DynamicContainer from './components/DynamicContainer';
 import EditSaveButton from './components/EditSaveButton';
 
 import { CvAppReducer, initialState } from './reducers/CvAppReducer';
-import { useReducer } from 'react';
+import { useState, useReducer } from 'react';
 
 import './App.css';
 import CvPreview from './components/CvPreview';
 
 function App() {
   const [state, dispatch] = useReducer(CvAppReducer, initialState);
+  const [cvPreviewData, setCvPreviewData] = useState(state);
   return (
     <>
       <h1>CV App</h1>
@@ -72,11 +73,19 @@ function App() {
             />
 
             <EditSaveButton
-              onClick={() =>
+              onClick={() => {
                 state.editGeneral
                   ? dispatch({ type: 'locked_general' })
-                  : dispatch({ type: 'unlocked_general' })
-              }
+                  : dispatch({ type: 'unlocked_general' });
+                if (state.editGeneral)
+                  setCvPreviewData({
+                    ...cvPreviewData,
+                    firstName: state.firstName,
+                    lastName: state.lastName,
+                    email: state.email,
+                    tel: state.tel,
+                  });
+              }}
               submitted={!state.editGeneral}
             />
           </CollapsibleContainer>
@@ -109,11 +118,16 @@ function App() {
             />
 
             <EditSaveButton
-              onClick={() =>
+              onClick={() => {
                 state.editEducation
                   ? dispatch({ type: 'locked_education' })
-                  : dispatch({ type: 'unlocked_education' })
-              }
+                  : dispatch({ type: 'unlocked_education' });
+                if (state.editEducation)
+                  setCvPreviewData({
+                    ...cvPreviewData,
+                    education: [...state.education],
+                  });
+              }}
               submitted={!state.editEducation}
             />
           </CollapsibleContainer>
@@ -144,18 +158,20 @@ function App() {
             />
 
             <EditSaveButton
-              onClick={() =>
+              onClick={() => {
                 state.editWork
                   ? dispatch({ type: 'locked_work' })
-                  : dispatch({ type: 'unlocked_work' })
-              }
+                  : dispatch({ type: 'unlocked_work' });
+                if (state.editWork)
+                  setCvPreviewData({ ...cvPreviewData, work: [...state.work] });
+              }}
               submitted={!state.editWork}
             />
           </CollapsibleContainer>
         </div>
         <div>
           <div className="cv-preview-area">
-            <CvPreview state={state} />
+            <CvPreview state={cvPreviewData} />
           </div>
         </div>
       </div>
