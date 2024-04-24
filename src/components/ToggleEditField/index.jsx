@@ -1,3 +1,4 @@
+import { useId } from 'react';
 import './index.css';
 
 export default function ToggleEditField({
@@ -7,16 +8,17 @@ export default function ToggleEditField({
   inputType = 'text',
   edit = true,
 }) {
+  const uniqueId = useId();
   return (
     <div className="toggle-edit-field">
-      <label className="toggle-edit-field-label" htmlFor={fieldName}>
+      <label className="toggle-edit-field-label" htmlFor={uniqueId}>
         {fieldName}
       </label>
       {edit && (
         <input
           type={inputType}
           className="toggle-edit-field-input"
-          id={fieldName}
+          id={uniqueId}
           onChange={onChange}
           value={value}
         ></input>
