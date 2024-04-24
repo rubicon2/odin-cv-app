@@ -43,3 +43,10 @@
     flex-direction: column;
   }
 }
+
+@media print {
+  .app-title,
+  .input-area {
+    display: none;
+  }
+}

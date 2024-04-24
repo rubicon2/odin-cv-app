@@ -90,3 +90,9 @@ button:focus-visible {
 .input-flex-gap {
   gap: 1rem;
 }
+
+@media print {
+  :root {
+    background-color: transparent;
+  }
+}

@@ -15,9 +15,9 @@ function App() {
   const [cvPreviewData, setCvPreviewData] = useState(state);
   return (
     <>
-      <h1>CV App</h1>
+      <h1 className="app-title">CV App</h1>
       <div className="app-container">
-        <div className="app-container-col">
+        <div className="app-container-col input-area">
           <CollapsibleContainer
             className="input-flex-gap"
             heading={<h2>General</h2>}
