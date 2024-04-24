@@ -29,8 +29,8 @@ export default function WorkPreview({ workArray }) {
         <div className="cv-preview-dates cv-work-preview-period">
           {dateString}
         </div>
-        <div className="cv-light-text cv-work-preview-duties">
-          {entry.duties}
+        <div className="cv-light-text cv-work-preview-summary">
+          {entry.summary}
         </div>
       </div>
     );

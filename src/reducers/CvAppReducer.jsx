@@ -10,7 +10,7 @@ export const initialState = {
     {
       id: 0,
       place: 'Some School',
-      subject: '10 GCSEs',
+      summary: '10 GCSEs',
       startDate: '2003-09-01',
       endDate: '2008-07-31',
       current: false,
@@ -18,7 +18,7 @@ export const initialState = {
     {
       id: 1,
       place: 'Some College',
-      subject: '4 A levels',
+      summary: '4 A levels',
       startDate: '2008-09-03',
       endDate: '2010-07-23',
       current: true,
@@ -29,7 +29,7 @@ export const initialState = {
       id: 0,
       company: 'Some Company',
       role: 'Chief Biscuit Officer',
-      duties:
+      summary:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut diam quam nulla porttitor massa id. Urna cursus eget nunc scelerisque. Nullam non nisi est sit. Gravida rutrum quisque non tellus orci ac auctor. Nunc lobortis mattis aliquam faucibus purus in massa. Molestie ac feugiat sed lectus vestibulum.',
       startDate: '2014-10-06',
       endDate: '2023-12-22',
@@ -38,7 +38,7 @@ export const initialState = {
       id: 1,
       company: 'Another Company',
       role: 'Head of Doughnut Acquisition',
-      duties:
+      summary:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut diam quam nulla porttitor massa id. Urna cursus eget nunc scelerisque. Nullam non nisi est sit. Gravida rutrum quisque non tellus orci ac auctor. Nunc lobortis mattis aliquam faucibus purus in massa. Molestie ac feugiat sed lectus vestibulum.',
       startDate: '2024-12-22',
       endDate: '2024-12-22',
@@ -48,17 +48,19 @@ export const initialState = {
 
 const blankEducationEntry = {
   place: '',
-  subject: '',
+  summary: '',
   startDate: '',
   endDate: '',
+  current: false,
 };
 
 const blankWorkEntry = {
   company: '',
   role: '',
-  duties: '',
+  summary: '',
   startDate: '',
   endDate: '',
+  current: false,
 };
 
 function calculateNewId(arr) {

@@ -28,8 +28,8 @@ export default function EducationPreview({ educationArray }) {
         <div className="cv-preview-dates cv-education-preview-dates">
           {dateString}
         </div>
-        <div className="cv-light-text cv-education-preview-qualifications">
-          {entry.subject}
+        <div className="cv-light-text cv-education-preview-summary">
+          {entry.summary}
         </div>
       </div>
     );

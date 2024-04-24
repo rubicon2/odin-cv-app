@@ -102,7 +102,7 @@ function App() {
               componentProps={{
                 fields: [
                   { name: 'Institution', key: 'place' },
-                  { name: 'Qualification(s)', key: 'subject' },
+                  { name: 'Summary', key: 'summary' },
                   { name: 'Start date', key: 'startDate', type: 'date' },
                   { name: 'End date', key: 'endDate', type: 'date' },
                   { name: 'To Present', key: 'current', type: 'checkbox' },
@@ -146,7 +146,7 @@ function App() {
                 fields: [
                   { name: 'Company', key: 'company' },
                   { name: 'Role', key: 'role' },
-                  { name: 'Summary', key: 'duties' },
+                  { name: 'Summary', key: 'summary' },
                   { name: 'Start date', key: 'startDate', type: 'date' },
                   { name: 'End date', key: 'endDate', type: 'date' },
                   { name: 'To Present', key: 'current', type: 'checkbox' },
