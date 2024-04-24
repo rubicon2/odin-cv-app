@@ -26,7 +26,7 @@ export const initialState = {
     {
       id: 0,
       company: 'Some Company',
-      role: 'Some role',
+      role: 'Chief Biscuit Officer',
       duties:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut diam quam nulla porttitor massa id. Urna cursus eget nunc scelerisque. Nullam non nisi est sit. Gravida rutrum quisque non tellus orci ac auctor. Nunc lobortis mattis aliquam faucibus purus in massa. Molestie ac feugiat sed lectus vestibulum.',
       startDate: '2014-10-06',
@@ -35,7 +35,7 @@ export const initialState = {
     {
       id: 1,
       company: 'Another Company',
-      role: 'Another mega role',
+      role: 'Head of Doughnut Acquisition',
       duties:
         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut diam quam nulla porttitor massa id. Urna cursus eget nunc scelerisque. Nullam non nisi est sit. Gravida rutrum quisque non tellus orci ac auctor. Nunc lobortis mattis aliquam faucibus purus in massa. Molestie ac feugiat sed lectus vestibulum.',
       startDate: '2024-12-22',
