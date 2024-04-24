@@ -16,9 +16,10 @@ export default function WorkPreview({ workArray }) {
     } catch (error) {
       console.error(error);
     }
-    // If start and end date are the same month, display e.g. 'April 2024' instead of 'April 2024 - April 2024'
     let dateString = `${startDate}`;
-    if (startDate !== endDate) dateString += ` - ${endDate}`;
+    if (entry.current) dateString += ' - present';
+    // If start and end date are the same month, display e.g. 'April 2024' instead of 'April 2024 - April 2024'
+    else if (startDate !== endDate) dateString += ` - ${endDate}`;
     return (
       <div className="cv-work-preview-item" key={entry.id}>
         <span className="cv-preview-heading cv-work-preview-company">

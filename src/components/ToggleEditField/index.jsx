@@ -9,12 +9,26 @@ export default function ToggleEditField({
   edit = true,
 }) {
   const uniqueId = useId();
-  return (
-    <div className="toggle-edit-field">
-      <label className="toggle-edit-field-label" htmlFor={uniqueId}>
-        {fieldName}
-      </label>
-      {edit && (
+  let input = null;
+  let readOnlyMessage = '';
+
+  switch (inputType) {
+    case 'checkbox':
+    case 'radio': {
+      input = (
+        <input
+          type={inputType}
+          className="toggle-edit-field-input"
+          id={uniqueId}
+          onChange={onChange}
+          checked={value}
+        ></input>
+      );
+      readOnlyMessage = value ? 'Yes' : 'No';
+      break;
+    }
+    default: {
+      input = (
         <input
           type={inputType}
           className="toggle-edit-field-input"
@@ -22,11 +36,20 @@ export default function ToggleEditField({
           onChange={onChange}
           value={value}
         ></input>
-      )}
-      {!edit && (
-        <span className="toggle-edit-field-readonly">
-          {value || 'Not stated'}
-        </span>
+      );
+      readOnlyMessage = value || 'Not stated';
+    }
+  }
+
+  return (
+    <div className="toggle-edit-field">
+      <label className="toggle-edit-field-label" htmlFor={uniqueId}>
+        {fieldName}
+      </label>
+      {edit ? (
+        input
+      ) : (
+        <span className="toggle-edit-field-readonly">{readOnlyMessage}</span>
       )}
     </div>
   );

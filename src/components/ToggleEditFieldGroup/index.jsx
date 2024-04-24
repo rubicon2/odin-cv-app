@@ -24,7 +24,10 @@ export default function ToggleEditFieldGroup({
             onChange={(event) =>
               onChange({
                 ...values,
-                [field.key]: event.target.value,
+                [field.key]:
+                  field.type === 'checkbox' || field.type === 'radio'
+                    ? !values[field.key]
+                    : event.target.value,
               })
             }
             edit={edit}

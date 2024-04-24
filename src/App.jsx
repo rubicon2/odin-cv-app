@@ -105,6 +105,7 @@ function App() {
                   { name: 'Qualification(s)', key: 'subject' },
                   { name: 'Start date', key: 'startDate', type: 'date' },
                   { name: 'End date', key: 'endDate', type: 'date' },
+                  { name: 'To Present', key: 'current', type: 'checkbox' },
                 ],
                 onChange: (entry) =>
                   dispatch({ type: 'changed_education', entry }),
@@ -148,6 +149,7 @@ function App() {
                   { name: 'Summary', key: 'duties' },
                   { name: 'Start date', key: 'startDate', type: 'date' },
                   { name: 'End date', key: 'endDate', type: 'date' },
+                  { name: 'To Present', key: 'current', type: 'checkbox' },
                 ],
                 onChange: (entry) => dispatch({ type: 'changed_work', entry }),
                 edit: state.editWork,

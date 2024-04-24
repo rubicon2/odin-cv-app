@@ -13,6 +13,7 @@ export const initialState = {
       subject: '10 GCSEs',
       startDate: '2003-09-01',
       endDate: '2008-07-31',
+      current: false,
     },
     {
       id: 1,
@@ -20,6 +21,7 @@ export const initialState = {
       subject: '4 A levels',
       startDate: '2008-09-03',
       endDate: '2010-07-23',
+      current: true,
     },
   ],
   work: [
