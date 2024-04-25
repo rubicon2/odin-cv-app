@@ -102,7 +102,7 @@ function App() {
             initialOpen={false}
           >
             <form
-              className="flex flex-col flex-input-gap"
+              className="flex flex-col input-flex-gap"
               onSubmit={(event) => {
                 event.preventDefault();
                 state.editEducation
@@ -161,7 +161,7 @@ function App() {
             initialOpen={false}
           >
             <form
-              className="flex flex-col flex-input-gap"
+              className="flex flex-col input-flex-gap"
               onSubmit={(event) => {
                 event.preventDefault();
                 state.editWork
