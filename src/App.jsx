@@ -207,6 +207,7 @@ function App() {
           </CollapsibleContainer>
         </div>
         <div>
+          <h2 className="preview-title">Preview</h2>
           <div className="cv-preview-area">
             <CvPreview state={cvPreviewData} />
           </div>

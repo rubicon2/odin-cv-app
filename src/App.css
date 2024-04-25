@@ -20,6 +20,10 @@
   gap: 1rem;
 }
 
+.preview-title {
+  display: none;
+}
+
 .cv-preview-area {
   position: sticky;
   top: 1rem;
@@ -41,6 +45,14 @@
   .app-container {
     display: flex;
     flex-direction: column;
+  }
+
+  .input-area {
+    margin-bottom: 2rem;
+  }
+
+  .preview-title {
+    display: block;
   }
 }
 
