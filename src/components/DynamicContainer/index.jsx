@@ -25,6 +25,7 @@ export default function DynamicContainer({
           {edit && (
             <button
               className="dynamic-container-delete-button"
+              type="button"
               onClick={() => onDelete(value)}
             >
               Delete
@@ -44,6 +45,7 @@ export default function DynamicContainer({
       {edit && (
         <button
           className="dynamic-container-add-button"
+          type="button"
           disabled={values.length >= maxChildren}
           onClick={onAdd}
         >

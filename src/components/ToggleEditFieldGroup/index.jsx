@@ -20,6 +20,7 @@ export default function ToggleEditFieldGroup({
             key={field.key}
             fieldName={field.name}
             inputType={field.type}
+            required={field.required || false}
             value={values[field.key]}
             onChange={(event) =>
               onChange({

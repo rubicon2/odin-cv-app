@@ -22,58 +22,10 @@ function App() {
             className="input-flex-gap"
             heading={<h2>General</h2>}
           >
-            <ToggleEditField
-              fieldName="First Name"
-              onChange={(event) =>
-                dispatch({
-                  type: 'changed_first_name',
-                  firstName: event.target.value,
-                })
-              }
-              value={state.firstName}
-              edit={state.editGeneral}
-            />
-
-            <ToggleEditField
-              fieldName="Surname"
-              onChange={(event) =>
-                dispatch({
-                  type: 'changed_last_name',
-                  lastName: event.target.value,
-                })
-              }
-              value={state.lastName}
-              edit={state.editGeneral}
-            />
-
-            <ToggleEditField
-              fieldName="Email"
-              inputType="email"
-              onChange={(event) =>
-                dispatch({
-                  type: 'changed_email',
-                  email: event.target.value,
-                })
-              }
-              value={state.email}
-              edit={state.editGeneral}
-            />
-
-            <ToggleEditField
-              fieldName="Telephone"
-              inputType="tel"
-              onChange={(event) =>
-                dispatch({
-                  type: 'changed_tel',
-                  tel: event.target.value,
-                })
-              }
-              value={state.tel}
-              edit={state.editGeneral}
-            />
-
-            <EditSaveButton
-              onClick={() => {
+            <form
+              className="flex flex-col input-flex-gap"
+              onSubmit={(event) => {
+                event.preventDefault();
                 state.editGeneral
                   ? dispatch({ type: 'locked_general' })
                   : dispatch({ type: 'unlocked_general' });
@@ -86,8 +38,62 @@ function App() {
                     tel: state.tel,
                   });
               }}
-              submitted={!state.editGeneral}
-            />
+            >
+              <ToggleEditField
+                fieldName="First Name"
+                onChange={(event) =>
+                  dispatch({
+                    type: 'changed_first_name',
+                    firstName: event.target.value,
+                  })
+                }
+                value={state.firstName}
+                required={true}
+                edit={state.editGeneral}
+              />
+
+              <ToggleEditField
+                fieldName="Surname"
+                onChange={(event) =>
+                  dispatch({
+                    type: 'changed_last_name',
+                    lastName: event.target.value,
+                  })
+                }
+                value={state.lastName}
+                required={true}
+                edit={state.editGeneral}
+              />
+
+              <ToggleEditField
+                fieldName="Email"
+                inputType="email"
+                onChange={(event) =>
+                  dispatch({
+                    type: 'changed_email',
+                    email: event.target.value,
+                  })
+                }
+                value={state.email}
+                required={true}
+                edit={state.editGeneral}
+              />
+
+              <ToggleEditField
+                fieldName="Telephone"
+                inputType="tel"
+                onChange={(event) =>
+                  dispatch({
+                    type: 'changed_tel',
+                    tel: event.target.value,
+                  })
+                }
+                value={state.tel}
+                edit={state.editGeneral}
+              />
+
+              <EditSaveButton submitted={!state.editGeneral} />
+            </form>
           </CollapsibleContainer>
 
           <CollapsibleContainer
@@ -95,31 +101,10 @@ function App() {
             heading={<h2>Education</h2>}
             initialOpen={false}
           >
-            <DynamicContainer
-              values={state.education}
-              component={ToggleEditFieldGroup}
-              componentValueName="values"
-              componentProps={{
-                fields: [
-                  { name: 'Institution', key: 'place' },
-                  { name: 'Summary', key: 'summary' },
-                  { name: 'Start date', key: 'startDate', type: 'date' },
-                  { name: 'End date', key: 'endDate', type: 'date' },
-                  { name: 'To Present', key: 'current', type: 'checkbox' },
-                ],
-                onChange: (entry) =>
-                  dispatch({ type: 'changed_education', entry }),
-                edit: state.editEducation,
-              }}
-              onAdd={() => dispatch({ type: 'added_education' })}
-              onDelete={(entry) =>
-                dispatch({ type: 'removed_education', entry })
-              }
-              edit={state.editEducation}
-            />
-
-            <EditSaveButton
-              onClick={() => {
+            <form
+              className="flex flex-col flex-input-gap"
+              onSubmit={(event) => {
+                event.preventDefault();
                 state.editEducation
                   ? dispatch({ type: 'locked_education' })
                   : dispatch({ type: 'unlocked_education' });
@@ -129,8 +114,45 @@ function App() {
                     education: [...state.education],
                   });
               }}
-              submitted={!state.editEducation}
-            />
+            >
+              <DynamicContainer
+                values={state.education}
+                component={ToggleEditFieldGroup}
+                componentValueName="values"
+                componentProps={{
+                  fields: [
+                    { name: 'Institution', key: 'place', required: true },
+                    { name: 'Summary', key: 'summary', required: true },
+                    {
+                      name: 'Start date',
+                      key: 'startDate',
+                      type: 'date',
+                      required: true,
+                    },
+                    {
+                      name: 'End date',
+                      key: 'endDate',
+                      type: 'date',
+                      required: true,
+                    },
+                    {
+                      name: 'To Present',
+                      key: 'current',
+                      type: 'checkbox',
+                    },
+                  ],
+                  onChange: (entry) =>
+                    dispatch({ type: 'changed_education', entry }),
+                  edit: state.editEducation,
+                }}
+                onAdd={() => dispatch({ type: 'added_education' })}
+                onDelete={(entry) =>
+                  dispatch({ type: 'removed_education', entry })
+                }
+                edit={state.editEducation}
+              />
+              <EditSaveButton submitted={!state.editEducation} />
+            </form>
           </CollapsibleContainer>
 
           <CollapsibleContainer
@@ -138,37 +160,50 @@ function App() {
             heading={<h2>Work Experience</h2>}
             initialOpen={false}
           >
-            <DynamicContainer
-              values={state.work}
-              component={ToggleEditFieldGroup}
-              componentValueName="values"
-              componentProps={{
-                fields: [
-                  { name: 'Company', key: 'company' },
-                  { name: 'Role', key: 'role' },
-                  { name: 'Summary', key: 'summary' },
-                  { name: 'Start date', key: 'startDate', type: 'date' },
-                  { name: 'End date', key: 'endDate', type: 'date' },
-                  { name: 'To Present', key: 'current', type: 'checkbox' },
-                ],
-                onChange: (entry) => dispatch({ type: 'changed_work', entry }),
-                edit: state.editWork,
-              }}
-              onAdd={() => dispatch({ type: 'added_work' })}
-              onDelete={(entry) => dispatch({ type: 'removed_work', entry })}
-              edit={state.editWork}
-            />
-
-            <EditSaveButton
-              onClick={() => {
+            <form
+              className="flex flex-col flex-input-gap"
+              onSubmit={(event) => {
+                event.preventDefault();
                 state.editWork
                   ? dispatch({ type: 'locked_work' })
                   : dispatch({ type: 'unlocked_work' });
                 if (state.editWork)
                   setCvPreviewData({ ...cvPreviewData, work: [...state.work] });
               }}
-              submitted={!state.editWork}
-            />
+            >
+              <DynamicContainer
+                values={state.work}
+                component={ToggleEditFieldGroup}
+                componentValueName="values"
+                componentProps={{
+                  fields: [
+                    { name: 'Company', key: 'company', required: true },
+                    { name: 'Role', key: 'role', required: true },
+                    { name: 'Summary', key: 'summary', required: true },
+                    {
+                      name: 'Start date',
+                      key: 'startDate',
+                      type: 'date',
+                      required: true,
+                    },
+                    {
+                      name: 'End date',
+                      key: 'endDate',
+                      type: 'date',
+                      required: true,
+                    },
+                    { name: 'To Present', key: 'current', type: 'checkbox' },
+                  ],
+                  onChange: (entry) =>
+                    dispatch({ type: 'changed_work', entry }),
+                  edit: state.editWork,
+                }}
+                onAdd={() => dispatch({ type: 'added_work' })}
+                onDelete={(entry) => dispatch({ type: 'removed_work', entry })}
+                edit={state.editWork}
+              />
+              <EditSaveButton submitted={!state.editWork} />
+            </form>
           </CollapsibleContainer>
         </div>
         <div>

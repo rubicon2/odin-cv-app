@@ -6,6 +6,7 @@ export default function ToggleEditField({
   value,
   onChange,
   inputType = 'text',
+  required = false,
   edit = true,
 }) {
   const uniqueId = useId();
@@ -22,6 +23,7 @@ export default function ToggleEditField({
           id={uniqueId}
           onChange={onChange}
           checked={value}
+          required={required}
         ></input>
       );
       readOnlyMessage = value ? 'Yes' : 'No';
@@ -35,6 +37,7 @@ export default function ToggleEditField({
           id={uniqueId}
           onChange={onChange}
           value={value}
+          required={required}
         ></input>
       );
       readOnlyMessage = value || 'Not stated';

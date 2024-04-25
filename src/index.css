@@ -87,6 +87,10 @@ button:focus-visible {
   display: flex;
 }
 
+.flex-col {
+  flex-direction: column;
+}
+
 .input-flex-gap {
   gap: 1rem;
 }
