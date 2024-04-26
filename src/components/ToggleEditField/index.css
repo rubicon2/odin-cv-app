@@ -38,10 +38,6 @@
   background-color: pink;
 }
 
-.invisible {
-  opacity: 0;
-}
-
 @media (min-width: 1300px) {
   .toggle-edit-field {
     flex-direction: row;
