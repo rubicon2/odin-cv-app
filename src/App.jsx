@@ -10,9 +10,51 @@ import { useState, useReducer } from 'react';
 import './App.css';
 import CvPreview from './components/CvPreview';
 
+const educationFormFields = [
+  { name: 'Institution', key: 'place', required: true },
+  { name: 'Summary', key: 'summary', required: true },
+  {
+    name: 'Start date',
+    key: 'startDate',
+    type: 'date',
+    required: true,
+  },
+  {
+    name: 'End date',
+    key: 'endDate',
+    type: 'date',
+    required: true,
+  },
+  {
+    name: 'To Present',
+    key: 'current',
+    type: 'checkbox',
+  },
+];
+
+const workFormFields = [
+  { name: 'Company', key: 'company', required: true },
+  { name: 'Role', key: 'role', required: true },
+  { name: 'Summary', key: 'summary', required: true },
+  {
+    name: 'Start date',
+    key: 'startDate',
+    type: 'date',
+    required: true,
+  },
+  {
+    name: 'End date',
+    key: 'endDate',
+    type: 'date',
+    required: true,
+  },
+  { name: 'To Present', key: 'current', type: 'checkbox' },
+];
+
 function App() {
   const [state, dispatch] = useReducer(CvAppReducer, initialState);
   const [cvPreviewData, setCvPreviewData] = useState(state);
+
   return (
     <>
       <h1 className="app-title">CV App</h1>
@@ -120,27 +162,7 @@ function App() {
                 component={ToggleEditFieldGroup}
                 componentValueName="values"
                 componentProps={{
-                  fields: [
-                    { name: 'Institution', key: 'place', required: true },
-                    { name: 'Summary', key: 'summary', required: true },
-                    {
-                      name: 'Start date',
-                      key: 'startDate',
-                      type: 'date',
-                      required: true,
-                    },
-                    {
-                      name: 'End date',
-                      key: 'endDate',
-                      type: 'date',
-                      required: true,
-                    },
-                    {
-                      name: 'To Present',
-                      key: 'current',
-                      type: 'checkbox',
-                    },
-                  ],
+                  fields: educationFormFields,
                   onChange: (entry) =>
                     dispatch({ type: 'changed_education', entry }),
                   edit: state.editEducation,
@@ -176,24 +198,7 @@ function App() {
                 component={ToggleEditFieldGroup}
                 componentValueName="values"
                 componentProps={{
-                  fields: [
-                    { name: 'Company', key: 'company', required: true },
-                    { name: 'Role', key: 'role', required: true },
-                    { name: 'Summary', key: 'summary', required: true },
-                    {
-                      name: 'Start date',
-                      key: 'startDate',
-                      type: 'date',
-                      required: true,
-                    },
-                    {
-                      name: 'End date',
-                      key: 'endDate',
-                      type: 'date',
-                      required: true,
-                    },
-                    { name: 'To Present', key: 'current', type: 'checkbox' },
-                  ],
+                  fields: workFormFields,
                   onChange: (entry) =>
                     dispatch({ type: 'changed_work', entry }),
                   edit: state.editWork,
