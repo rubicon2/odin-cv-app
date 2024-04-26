@@ -1,6 +1,8 @@
 .toggle-edit-field {
   display: flex;
   flex-direction: column;
+
+  position: relative;
 }
 
 .toggle-edit-field-label,
@@ -19,6 +21,25 @@
 
 .toggle-edit-field-label {
   padding: 0.5rem 0;
+}
+
+.toggle-edit-field-input {
+  border-radius: 5px 0 0 5px;
+}
+
+.toggle-edit-field-input-status-icon {
+  border: none;
+  border-radius: 0 5px 5px 0;
+  outline: 1px solid #24242481;
+  background-color: var(--light-color);
+}
+
+.toggle-edit-field-input:invalid {
+  background-color: pink;
+}
+
+.invisible {
+  opacity: 0;
 }
 
 @media (min-width: 1300px) {
