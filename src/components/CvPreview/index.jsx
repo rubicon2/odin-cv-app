@@ -21,8 +21,8 @@ export default function CvPreview({ state }) {
   return (
     <div className="cv-preview">
       {headingPreview}
-      {educationPreview}
-      {workPreview}
+      {state.education.length > 0 && educationPreview}
+      {state.work.length > 0 && workPreview}
     </div>
   );
 }
