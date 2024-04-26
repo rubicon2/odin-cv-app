@@ -5,9 +5,15 @@
   position: relative;
 }
 
+.toggle-edit-field-input-container {
+  display: flex;
+  width: 100%;
+}
+
 .toggle-edit-field-label,
 .toggle-edit-field-input,
 .toggle-edit-field-readonly {
+  width: 100%;
   text-align: left;
   padding: 0.5rem;
   font-size: 1rem;
@@ -18,6 +24,7 @@
   outline: none;
   width: 1.2rem;
   height: 1.2rem;
+  align-self: center;
 }
 .toggle-edit-field-input[type='checkbox']:focus,
 .toggle-edit-field-input[type='radio']:focus {
@@ -37,10 +44,15 @@
   border-radius: 0 5px 5px 0;
   outline: 1px solid #24242481;
   background-color: var(--light-color);
+  width: min-content;
 }
 
 .toggle-edit-field-input:invalid {
   background-color: pink;
+}
+
+.always-flex-row {
+  flex-direction: row;
 }
 
 @media (min-width: 1300px) {
@@ -49,10 +61,7 @@
     justify-content: space-between;
   }
 
-  .toggle-edit-field-label,
-  .toggle-edit-field-input,
-  .toggle-edit-field-readonly {
-    /* Put on this media query - if on mobile layout it overflows the container for some reason?? Even though 100% is LITERALLY 100% of the parent container! */
-    width: 100%;
+  .toggle-edit-field-label {
+    width: 40%;
   }
 }

@@ -26,9 +26,12 @@ export default function ToggleEditField({
     event.target.checkValidity() ? setStatusIcon(tick) : setStatusIcon(cross);
   }
 
+  let className = 'toggle-edit-field';
+
   switch (inputType) {
     case 'checkbox':
     case 'radio': {
+      className += ' always-flex-row';
       input = (
         <input
           type={inputType}
@@ -44,7 +47,7 @@ export default function ToggleEditField({
     }
     default: {
       input = (
-        <>
+        <div className="toggle-edit-field-input-container">
           <input
             type={inputType}
             className="toggle-edit-field-input"
@@ -61,14 +64,14 @@ export default function ToggleEditField({
             className="toggle-edit-field-input-status-icon"
             src={statusIcon}
           ></img>
-        </>
+        </div>
       );
       readOnlyMessage = value || 'Not stated';
     }
   }
 
   return (
-    <div className="toggle-edit-field">
+    <div className={className}>
       <label className="toggle-edit-field-label" htmlFor={uniqueId}>
         {fieldName}
       </label>
