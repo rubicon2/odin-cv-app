@@ -1,5 +1,4 @@
 import ToggleEditField from '../ToggleEditField';
-import './index.css';
 
 // Fields is an array of objects, containing a field name, key and input type. It is used to give each field a
 // user-friendly name, and so you can select which keys from the values object to show. E.g. you may not
@@ -13,7 +12,7 @@ export default function ToggleEditFieldGroup({
   edit,
 }) {
   return (
-    <div className="toggle-edit-field-group input-flex-gap">
+    <div className="data-fields-grid input-flex-gap">
       {fields.map((field) => {
         return (
           <ToggleEditField
