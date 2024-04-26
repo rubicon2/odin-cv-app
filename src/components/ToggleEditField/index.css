@@ -17,6 +17,11 @@
 .toggle-edit-field-input[type='radio'] {
   outline: none;
   width: 1.2rem;
+  height: 1.2rem;
+}
+.toggle-edit-field-input[type='checkbox']:focus,
+.toggle-edit-field-input[type='radio']:focus {
+  outline: 2px solid var(--light-accent-color);
 }
 
 .toggle-edit-field-label {
