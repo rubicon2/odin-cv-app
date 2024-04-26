@@ -6,7 +6,7 @@ export default function EditSaveButton({
   submitted = false,
 }) {
   return (
-    <button className="container-button" type={type} onClick={onClick}>
+    <button className="edit-save-button" type={type} onClick={onClick}>
       {submitted ? 'Edit' : 'Save'}
     </button>
   );
