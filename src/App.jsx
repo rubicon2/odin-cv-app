@@ -1,10 +1,12 @@
 import { useState } from 'react';
+
 import DataEntry from './components/DataEntry';
 import CvPreview from './components/CvPreview';
 
 import InputDataProvider from './providers/InputDataProvider';
 import { PreviewGetContext } from './contexts/CvAppContext';
 import { initialState } from './reducers/CvAppReducer';
+
 import './App.css';
 
 function App() {
