@@ -3,6 +3,9 @@ import DynamicContainer from '../DynamicContainer';
 import ToggleEditFieldGroup from '../ToggleEditFieldGroup';
 import EditSaveButton from '../EditSaveButton';
 
+import { StateContext, DispatchContext } from '../../contexts/CvAppContext';
+import { useContext } from 'react';
+
 const educationFormFields = [
   { name: 'Institution', key: 'place', required: true },
   { name: 'Summary', key: 'summary', required: true },
@@ -25,12 +28,9 @@ const educationFormFields = [
   },
 ];
 
-export default function EducationEntry({
-  state,
-  dispatch,
-  cvPreviewData,
-  setCvPreviewData,
-}) {
+export default function EducationEntry({ cvPreviewData, setCvPreviewData }) {
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
   return (
     <CollapsibleContainer
       className="input-flex-gap"

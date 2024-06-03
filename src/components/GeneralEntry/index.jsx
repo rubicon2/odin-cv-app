@@ -2,12 +2,12 @@ import CollapsibleContainer from '../CollapsibleContainer';
 import ToggleEditField from '../ToggleEditField';
 import EditSaveButton from '../EditSaveButton';
 
-export default function GeneralEntry({
-  state,
-  dispatch,
-  cvPreviewData,
-  setCvPreviewData,
-}) {
+import { StateContext, DispatchContext } from '../../contexts/CvAppContext';
+import { useContext } from 'react';
+
+export default function GeneralEntry({ cvPreviewData, setCvPreviewData }) {
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
   return (
     <CollapsibleContainer className="input-flex-gap" heading={<h2>General</h2>}>
       <form

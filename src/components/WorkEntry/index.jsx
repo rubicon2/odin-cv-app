@@ -3,6 +3,9 @@ import DynamicContainer from '../DynamicContainer';
 import ToggleEditFieldGroup from '../ToggleEditFieldGroup';
 import EditSaveButton from '../EditSaveButton';
 
+import { StateContext, DispatchContext } from '../../contexts/CvAppContext';
+import { useContext } from 'react';
+
 const workFormFields = [
   { name: 'Company', key: 'company', required: true },
   { name: 'Role', key: 'role', required: true },
@@ -22,12 +25,9 @@ const workFormFields = [
   { name: 'To Present', key: 'current', type: 'checkbox' },
 ];
 
-export default function WorkEntry({
-  state,
-  dispatch,
-  cvPreviewData,
-  setCvPreviewData,
-}) {
+export default function WorkEntry({ cvPreviewData, setCvPreviewData }) {
+  const state = useContext(StateContext);
+  const dispatch = useContext(DispatchContext);
   return (
     <CollapsibleContainer
       className="input-flex-gap"
