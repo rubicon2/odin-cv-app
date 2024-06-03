@@ -5,7 +5,6 @@ import EditSaveButton from '../EditSaveButton';
 import {
   InputStateContext,
   InputDispatchContext,
-  PreviewGetContext,
   PreviewSetContext,
 } from '../../contexts/CvAppContext';
 import { useContext } from 'react';
@@ -13,8 +12,7 @@ import { useContext } from 'react';
 export default function GeneralEntry() {
   const state = useContext(InputStateContext);
   const dispatch = useContext(InputDispatchContext);
-  const previewData = useContext(PreviewGetContext);
-  const setCvPreviewData = useContext(PreviewSetContext);
+  const updatePreview = useContext(PreviewSetContext);
 
   return (
     <CollapsibleContainer className="input-flex-gap" heading={<h2>General</h2>}>
@@ -26,8 +24,7 @@ export default function GeneralEntry() {
             ? dispatch({ type: 'locked_general' })
             : dispatch({ type: 'unlocked_general' });
           if (state.editGeneral)
-            setCvPreviewData({
-              ...previewData,
+            updatePreview({
               firstName: state.firstName,
               lastName: state.lastName,
               email: state.email,

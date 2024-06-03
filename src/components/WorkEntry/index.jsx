@@ -6,7 +6,6 @@ import EditSaveButton from '../EditSaveButton';
 import {
   InputStateContext,
   InputDispatchContext,
-  PreviewGetContext,
   PreviewSetContext,
 } from '../../contexts/CvAppContext';
 import { useContext } from 'react';
@@ -33,8 +32,7 @@ const workFormFields = [
 export default function WorkEntry() {
   const state = useContext(InputStateContext);
   const dispatch = useContext(InputDispatchContext);
-  const previewData = useContext(PreviewGetContext);
-  const setPreviewData = useContext(PreviewSetContext);
+  const updatePreview = useContext(PreviewSetContext);
 
   return (
     <CollapsibleContainer
@@ -49,8 +47,7 @@ export default function WorkEntry() {
           state.editWork
             ? dispatch({ type: 'locked_work' })
             : dispatch({ type: 'unlocked_work' });
-          if (state.editWork)
-            setPreviewData({ ...previewData, work: [...state.work] });
+          if (state.editWork) updatePreview({ work: [...state.work] });
         }}
       >
         <DynamicContainer

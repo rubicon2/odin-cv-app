@@ -6,7 +6,6 @@ import EditSaveButton from '../EditSaveButton';
 import {
   InputStateContext,
   InputDispatchContext,
-  PreviewGetContext,
   PreviewSetContext,
 } from '../../contexts/CvAppContext';
 import { useContext } from 'react';
@@ -36,8 +35,7 @@ const educationFormFields = [
 export default function EducationEntry() {
   const state = useContext(InputStateContext);
   const dispatch = useContext(InputDispatchContext);
-  const previewData = useContext(PreviewGetContext);
-  const setPreviewData = useContext(PreviewSetContext);
+  const updatePreview = useContext(PreviewSetContext);
 
   return (
     <CollapsibleContainer
@@ -53,8 +51,7 @@ export default function EducationEntry() {
             ? dispatch({ type: 'locked_education' })
             : dispatch({ type: 'unlocked_education' });
           if (state.editEducation)
-            setPreviewData({
-              ...previewData,
+            updatePreview({
               education: [...state.education],
             });
         }}

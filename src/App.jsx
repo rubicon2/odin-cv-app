@@ -10,14 +10,15 @@ import './App.css';
 function App() {
   const [cvPreviewData, setCvPreviewData] = useState(initialState);
 
+  const updateCvPreview = (updates) => {
+    setCvPreviewData({ ...cvPreviewData, ...updates });
+  };
+
   return (
     <>
       <h1 className="app-title">CV App</h1>
       <div className="app-container">
-        <InputDataProvider
-          previewData={cvPreviewData}
-          setPreviewData={setCvPreviewData}
-        >
+        <InputDataProvider setPreviewData={updateCvPreview}>
           <div className="app-container-col input-area">
             <DataEntry />
           </div>
