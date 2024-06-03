@@ -1,12 +1,16 @@
+import { useContext } from 'react';
+import { PreviewGetContext } from '../../contexts/CvAppContext';
 import './index.css';
 
-export default function EducationPreview({ educationArray }) {
+export default function EducationPreview() {
+  const { education } = useContext(PreviewGetContext);
+
   const dateFormatter = new Intl.DateTimeFormat(undefined, {
     month: 'long',
     year: 'numeric',
   });
 
-  const entries = educationArray.map((entry) => {
+  const entries = education.map((entry) => {
     let startDate = '';
     let endDate = '';
     // Need to wrap in try catch since if entry dates have not been filled in yet, will throw an error
@@ -34,6 +38,8 @@ export default function EducationPreview({ educationArray }) {
       </div>
     );
   });
+
+  if (entries.length === 0) return null;
 
   return (
     <div className="cv-education-preview">

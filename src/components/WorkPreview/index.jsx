@@ -1,12 +1,16 @@
+import { useContext } from 'react';
+import { PreviewGetContext } from '../../contexts/CvAppContext';
 import './index.css';
 
-export default function WorkPreview({ workArray }) {
+export default function WorkPreview() {
+  const { work } = useContext(PreviewGetContext);
+
   const dateFormatter = new Intl.DateTimeFormat(undefined, {
     month: 'long',
     year: 'numeric',
   });
 
-  const entries = workArray.map((entry) => {
+  const entries = work.map((entry) => {
     let startDate = '';
     let endDate = '';
     // Need to wrap in try catch since if entry dates have not been filled in yet, will throw an error
@@ -35,6 +39,9 @@ export default function WorkPreview({ workArray }) {
       </div>
     );
   });
+
+  if (entries.length === 0) return null;
+
   return (
     <div className="cv-work-preview">
       <div className="cv-preview-section-heading">Experience</div>

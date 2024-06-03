@@ -1,7 +1,12 @@
 import DataEntry from './components/DataEntry';
 import CvPreview from './components/CvPreview';
 import { CvAppReducer, initialState } from './reducers/CvAppReducer';
-import { StateContext, DispatchContext } from './contexts/CvAppContext';
+import {
+  InputStateContext,
+  InputDispatchContext,
+  PreviewGetContext,
+  PreviewSetContext,
+} from './contexts/CvAppContext';
 import { useState, useReducer } from 'react';
 
 import './App.css';
@@ -11,27 +16,30 @@ function App() {
   const [cvPreviewData, setCvPreviewData] = useState(state);
 
   return (
-    <StateContext.Provider value={state}>
-      <DispatchContext.Provider value={dispatch}>
-        <h1 className="app-title">CV App</h1>
-        <div className="app-container">
-          <div className="app-container-col input-area">
-            <DataEntry
-              state={state}
-              dispatch={dispatch}
-              cvPreviewData={cvPreviewData}
-              setCvPreviewData={setCvPreviewData}
-            />
-          </div>
-          <div>
-            <h2 className="preview-title">Preview</h2>
+    <>
+      <h1 className="app-title">CV App</h1>
+      <div className="app-container">
+        <InputStateContext.Provider value={state}>
+          <InputDispatchContext.Provider value={dispatch}>
+            <PreviewGetContext.Provider value={cvPreviewData}>
+              <PreviewSetContext.Provider value={setCvPreviewData}>
+                <div className="app-container-col input-area">
+                  <DataEntry />
+                </div>
+              </PreviewSetContext.Provider>
+            </PreviewGetContext.Provider>
+          </InputDispatchContext.Provider>
+        </InputStateContext.Provider>
+        <div>
+          <h2 className="preview-title">Preview</h2>
+          <PreviewGetContext.Provider value={cvPreviewData}>
             <div className="cv-preview-area">
-              <CvPreview state={cvPreviewData} />
+              <CvPreview />
             </div>
-          </div>
+          </PreviewGetContext.Provider>
         </div>
-      </DispatchContext.Provider>
-    </StateContext.Provider>
+      </div>
+    </>
   );
 }
 

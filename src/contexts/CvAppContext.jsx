@@ -1,4 +1,7 @@
 import { createContext } from 'react';
 
-export const StateContext = createContext(null);
-export const DispatchContext = createContext(null);
+export const InputStateContext = createContext(null);
+export const InputDispatchContext = createContext(null);
+
+export const PreviewGetContext = createContext(null);
+export const PreviewSetContext = createContext(null);

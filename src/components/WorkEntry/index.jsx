@@ -3,7 +3,12 @@ import DynamicContainer from '../DynamicContainer';
 import ToggleEditFieldGroup from '../ToggleEditFieldGroup';
 import EditSaveButton from '../EditSaveButton';
 
-import { StateContext, DispatchContext } from '../../contexts/CvAppContext';
+import {
+  InputStateContext,
+  InputDispatchContext,
+  PreviewGetContext,
+  PreviewSetContext,
+} from '../../contexts/CvAppContext';
 import { useContext } from 'react';
 
 const workFormFields = [
@@ -25,9 +30,12 @@ const workFormFields = [
   { name: 'To Present', key: 'current', type: 'checkbox' },
 ];
 
-export default function WorkEntry({ cvPreviewData, setCvPreviewData }) {
-  const state = useContext(StateContext);
-  const dispatch = useContext(DispatchContext);
+export default function WorkEntry() {
+  const state = useContext(InputStateContext);
+  const dispatch = useContext(InputDispatchContext);
+  const previewData = useContext(PreviewGetContext);
+  const setPreviewData = useContext(PreviewSetContext);
+
   return (
     <CollapsibleContainer
       className="input-flex-gap"
@@ -42,7 +50,7 @@ export default function WorkEntry({ cvPreviewData, setCvPreviewData }) {
             ? dispatch({ type: 'locked_work' })
             : dispatch({ type: 'unlocked_work' });
           if (state.editWork)
-            setCvPreviewData({ ...cvPreviewData, work: [...state.work] });
+            setPreviewData({ ...previewData, work: [...state.work] });
         }}
       >
         <DynamicContainer

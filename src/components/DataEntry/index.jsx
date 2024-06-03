@@ -3,23 +3,12 @@ import EducationEntry from '../EducationEntry';
 import WorkEntry from '../WorkEntry';
 import './index.css';
 
-export default function DataEntry({ cvPreviewData, setCvPreviewData }) {
+export default function DataEntry() {
   return (
     <>
-      <GeneralEntry
-        cvPreviewData={cvPreviewData}
-        setCvPreviewData={setCvPreviewData}
-      />
-
-      <EducationEntry
-        cvPreviewData={cvPreviewData}
-        setCvPreviewData={setCvPreviewData}
-      />
-
-      <WorkEntry
-        cvPreviewData={cvPreviewData}
-        setCvPreviewData={setCvPreviewData}
-      />
+      <GeneralEntry />
+      <EducationEntry />
+      <WorkEntry />
     </>
   );
 }
