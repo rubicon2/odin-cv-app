@@ -1,6 +1,12 @@
-import { useContext } from 'react';
 import { PreviewGetContext } from '../../contexts/CvAppContext';
-import './index.css';
+import {
+  SectionHeading,
+  DynamicItem,
+  LocationSpan,
+  LocationDates,
+  LocationSummary,
+} from '../CvPreview';
+import { useContext } from 'react';
 
 export default function EducationPreview() {
   const { education } = useContext(PreviewGetContext);
@@ -25,25 +31,19 @@ export default function EducationPreview() {
     // If start and end date are the same month, display e.g. 'April 2024' instead of 'April 2024 - April 2024'
     else if (startDate !== endDate) dateString += ` - ${endDate}`;
     return (
-      <div className="cv-education-preview-item" key={entry.id}>
-        <div className="cv-preview-heading cv-education-preview-place">
-          {entry.place}
-        </div>
-        <div className="cv-preview-dates cv-education-preview-dates">
-          {dateString}
-        </div>
-        <div className="cv-light-text cv-education-preview-summary">
-          {entry.summary}
-        </div>
-      </div>
+      <DynamicItem key={entry.id}>
+        <LocationSpan>{entry.place}</LocationSpan>
+        <LocationDates>{dateString}</LocationDates>
+        <LocationSummary>{entry.summary}</LocationSummary>
+      </DynamicItem>
     );
   });
 
   if (entries.length === 0) return null;
 
   return (
-    <div className="cv-education-preview">
-      <div className="cv-preview-section-heading">Education</div>
+    <div>
+      <SectionHeading>Education</SectionHeading>
       {entries}
     </div>
   );

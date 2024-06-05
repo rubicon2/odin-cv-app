@@ -1,6 +1,17 @@
-import { useContext } from 'react';
+import {
+  SectionHeading,
+  DynamicItem,
+  LocationSpan,
+  LocationDates,
+  LocationSummary,
+} from '../CvPreview';
 import { PreviewGetContext } from '../../contexts/CvAppContext';
-import './index.css';
+import { useContext } from 'react';
+import styled from 'styled-components';
+
+const Role = styled.span`
+  font-style: italic;
+`;
 
 export default function WorkPreview() {
   const { work } = useContext(PreviewGetContext);
@@ -25,26 +36,20 @@ export default function WorkPreview() {
     // If start and end date are the same month, display e.g. 'April 2024' instead of 'April 2024 - April 2024'
     else if (startDate !== endDate) dateString += ` - ${endDate}`;
     return (
-      <div className="cv-work-preview-item" key={entry.id}>
-        <span className="cv-preview-heading cv-work-preview-company">
-          {entry.company}
-        </span>
-        <span className="cv-work-preview-role"> - {entry.role}</span>
-        <div className="cv-preview-dates cv-work-preview-period">
-          {dateString}
-        </div>
-        <div className="cv-light-text cv-work-preview-summary">
-          {entry.summary}
-        </div>
-      </div>
+      <DynamicItem key={entry.id}>
+        <LocationSpan>{entry.company}</LocationSpan>
+        <Role> - {entry.role}</Role>
+        <LocationDates>{dateString}</LocationDates>
+        <LocationSummary>{entry.summary}</LocationSummary>
+      </DynamicItem>
     );
   });
 
   if (entries.length === 0) return null;
 
   return (
-    <div className="cv-work-preview">
-      <div className="cv-preview-section-heading">Experience</div>
+    <div>
+      <SectionHeading>Experience</SectionHeading>
       {entries}
     </div>
   );
