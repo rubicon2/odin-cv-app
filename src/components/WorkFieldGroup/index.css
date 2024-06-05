@@ -1,9 +1,0 @@
-.work-info-section {
-  display: flex;
-  flex-direction: column;
-  border-bottom: 2px solid black;
-}
-
-.work-info-section:last-of-type {
-  border: none;
-}
