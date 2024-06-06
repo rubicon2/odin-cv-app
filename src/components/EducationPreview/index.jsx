@@ -1,11 +1,11 @@
-import { PreviewGetContext } from '../../contexts/CvAppContext';
 import {
   SectionHeading,
   DynamicItem,
-  LocationSpan,
+  LocationName,
   LocationDates,
   LocationSummary,
-} from '../CvPreview';
+} from '../CvPreviewComponents';
+import { PreviewGetContext } from '../../contexts/CvAppContext';
 import { useContext } from 'react';
 
 export default function EducationPreview() {
@@ -32,7 +32,7 @@ export default function EducationPreview() {
     else if (startDate !== endDate) dateString += ` - ${endDate}`;
     return (
       <DynamicItem key={entry.id}>
-        <LocationSpan>{entry.place}</LocationSpan>
+        <LocationName>{entry.place}</LocationName>
         <LocationDates>{dateString}</LocationDates>
         <LocationSummary>{entry.summary}</LocationSummary>
       </DynamicItem>

@@ -1,10 +1,10 @@
 import {
   SectionHeading,
   DynamicItem,
-  LocationSpan,
+  LocationName,
   LocationDates,
   LocationSummary,
-} from '../CvPreview';
+} from '../CvPreviewComponents';
 import { PreviewGetContext } from '../../contexts/CvAppContext';
 import { useContext } from 'react';
 import styled from 'styled-components';
@@ -37,7 +37,7 @@ export default function WorkPreview() {
     else if (startDate !== endDate) dateString += ` - ${endDate}`;
     return (
       <DynamicItem key={entry.id}>
-        <LocationSpan>{entry.company}</LocationSpan>
+        <LocationName>{entry.company}</LocationName>
         <Role> - {entry.role}</Role>
         <LocationDates>{dateString}</LocationDates>
         <LocationSummary>{entry.summary}</LocationSummary>
